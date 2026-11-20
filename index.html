@@ -16,7 +16,7 @@
   <!-- Fontes modernas (Inter e Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -35,8 +35,8 @@
             viceMagenta: '#ff00cc',
             viceOrange: '#ff6a2b',
             viceGold: '#fbbf24',
-            meliYellow: '#FFE600',
-            shopeeOrange: '#EE4D2D',
+            meliYellow: '#ffe600',
+            shopeeOrange: '#ee4d2d',
           }
         }
       }
@@ -50,13 +50,13 @@
     <div class="absolute -top-28 -left-24 w-80 h-80 sm:w-[440px] sm:h-[440px] rounded-full bg-[#ff00cc]/20 blur-3xl"></div>
     <div class="absolute -top-24 -right-24 w-80 h-80 sm:w-[440px] sm:h-[440px] rounded-full bg-[#ff6a2b]/20 blur-3xl"></div>
     <div class="absolute top-80 left-1/2 -translate-x-1/2 w-96 h-56 rounded-full bg-[#fbbf24]/10 blur-3xl"></div>
-    <div class="absolute bottom-0 inset-x-0 h-64 bg-gradient-to-t from-[#140826]/70 to-transparent"></div>
+    <div class="absolute bottom-0 inset-x-0 h-64 bg-gradient-to-t from-[#140826]/75 to-transparent"></div>
   </div>
 
   <!-- Container principal responsivo (mobile-first) -->
   <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 pt-5 sm:pt-8 pb-14">
 
-    <!-- Aviso de rascunho local (exibido somente após editar no modal) -->
+    <!-- Aviso de rascunho local (aparece somente quando você edita no modal) -->
     <div id="aviso-rascunho" class="hidden mb-4 rounded-2xl border border-[#fbbf24]/50 bg-[#fbbf24]/10 px-4 py-3 text-xs text-[#fbbf24] flex flex-wrap items-center justify-between gap-2">
       <span class="font-semibold leading-snug">Edições salvas na prévia. Copie o <strong class="font-black">index.html</strong> atualizado para colar no GitHub.</span>
       <button id="btn-abrir-editor-topo" type="button" class="shrink-0 rounded-xl bg-[#fbbf24] text-[#0b0416] font-extrabold px-3.5 py-2 text-xs active:scale-95 transition">
@@ -65,14 +65,14 @@
     </div>
 
     <!-- 1. HERO CARD DA LOJA OFICIAL @LEONIDARECBR -->
-    <header class="relative rounded-3xl bg-[#140826]/95 border border-white/10 p-5 sm:p-7 shadow-2xl shadow-[#ff00cc]/10 backdrop-blur-md">
-      <!-- Barra neon superior de 4px -->
+    <header class="relative rounded-3xl bg-[#140826]/95 border border-[#ff00cc]/20 p-5 sm:p-7 shadow-2xl shadow-[#ff00cc]/15 backdrop-blur-md">
+      <!-- Linha gradiente superior neon -->
       <div class="absolute top-0 inset-x-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#ff00cc] via-[#ff6a2b] to-[#fbbf24]" aria-hidden="true"></div>
 
       <div class="flex flex-col items-center text-center">
-        <!-- Linha superior: Selo LOJA OFICIAL + Botão Compartilhar Loja -->
-        <div class="w-full flex items-center justify-between gap-2 mb-4">
-          <span class="inline-flex items-center gap-2 rounded-full bg-[#ff00cc]/15 border border-[#ff00cc]/35 px-3 py-1.5 text-[11px] font-extrabold tracking-wide text-[#ff99eb]">
+        <!-- Barra superior: Pill LOJA OFICIAL + Botão Compartilhar Loja -->
+        <div class="w-full flex items-center justify-between gap-2 mb-5">
+          <span class="inline-flex items-center gap-2 rounded-full bg-[#ff00cc]/15 border border-[#ff00cc]/40 px-3 py-1.5 text-[11px] font-extrabold tracking-wide text-[#ff99eb]">
             <span class="w-2 h-2 rounded-full bg-[#ff1a24] animate-pulse shadow-sm shadow-[#ff1a24]"></span>
             LOJA OFICIAL
           </span>
@@ -90,23 +90,60 @@
           </button>
         </div>
 
-        <!-- Avatar 100px x 100px com selo verificado limpo e sem recorte -->
-        <div class="relative w-[100px] h-[100px] mx-auto">
-          <!-- Brilho suave atrás do anel neon -->
+        <!-- Avatar circular 96px com anel neon + fallback em cascata (perfil.jpg -> 1001193376.jpg -> SVG REC) -->
+        <div class="relative w-24 h-24 mx-auto">
+          <!-- Brilho suave atrás do avatar -->
           <div class="absolute -inset-1.5 rounded-full bg-gradient-to-br from-[#ff00cc] via-[#ff6a2b] to-[#fbbf24] opacity-55 blur-md pointer-events-none" aria-hidden="true"></div>
 
-          <!-- Anel neon gradiente segurando a foto circular -->
+          <!-- Anel neon magenta para âmbar -->
           <div class="relative w-full h-full rounded-full p-[3px] bg-gradient-to-br from-[#ff00cc] via-[#ff6a2b] to-[#fbbf24] shadow-xl shadow-[#ff00cc]/30">
-            <img
-              id="avatar-img"
-              src="perfil.jpg"
-              alt="Foto de perfil @leonidarecbr"
-              class="w-full h-full rounded-full object-cover bg-[#120324] block"
-              onerror="tratarErroAvatar(this)"
-            />
+            <div class="w-full h-full rounded-full overflow-hidden bg-[#120324] relative">
+              <img
+                id="avatar-img"
+                src="perfil.jpg"
+                alt="Foto de perfil @leonidarecbr"
+                class="w-full h-full object-cover block"
+                onerror="tratarErroAvatar(this)"
+              />
+              <!-- Réplica vetorial fiel da logo REC (exibida automaticamente se a imagem não existir) -->
+              <svg id="avatar-svg-fallback" class="hidden w-full h-full block" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo REC @leonidarecbr">
+                <defs>
+                  <linearGradient id="rec-sun" x1="0.5" y1="0" x2="0.5" y2="1">
+                    <stop offset="0%" stop-color="#ff00e1"/>
+                    <stop offset="48%" stop-color="#ff2e88"/>
+                    <stop offset="100%" stop-color="#ff7a29"/>
+                  </linearGradient>
+                  <radialGradient id="rec-halo" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ff00cc" stop-opacity="0.6"/>
+                    <stop offset="65%" stop-color="#ff6a2b" stop-opacity="0.22"/>
+                    <stop offset="100%" stop-color="#120324" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="rec-dot-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ff1a24" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#ff1a24" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="100" cy="100" r="100" fill="#120324"/>
+                <circle cx="100" cy="100" r="92" fill="#17042e"/>
+                <circle cx="100" cy="100" r="82" fill="url(#rec-halo)"/>
+                <circle cx="100" cy="100" r="61" fill="url(#rec-sun)"/>
+                <path d="M10 176 Q56 160 102 175 Q148 189 190 166 L200 200 L0 200 Z" fill="#0b0217"/>
+                <path d="M36 184 Q34 156 29 135" stroke="#0b0217" stroke-width="5.2" fill="none" stroke-linecap="round"/>
+                <path d="M29 135 Q15 129 8 139 M29 135 Q18 120 29 116 M29 135 Q39 121 51 127 M29 135 Q43 135 52 147 M29 135 Q20 140 16 152" stroke="#0b0217" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+                <path d="M57 186 Q55 168 51 153" stroke="#0b0217" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+                <path d="M51 153 Q40 149 36 158 M51 153 Q47 142 58 143 M51 153 Q62 149 67 159" stroke="#0b0217" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+                <path d="M149 186 Q150 164 145 147" stroke="#0b0217" stroke-width="4.2" fill="none" stroke-linecap="round"/>
+                <path d="M145 147 Q133 142 127 150 M145 147 Q139 135 151 135 M145 147 Q157 142 164 150 M145 147 Q155 154 159 164" stroke="#0b0217" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M174 182 Q178 154 184 134" stroke="#0b0217" stroke-width="4.8" fill="none" stroke-linecap="round"/>
+                <path d="M184 134 Q170 128 164 138 M184 134 Q178 120 190 120 M184 134 Q194 128 198 138" stroke="#0b0217" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+                <circle cx="42" cy="100" r="24" fill="url(#rec-dot-glow)"/>
+                <circle cx="42" cy="100" r="18" fill="#ff1624"/>
+                <text x="123" y="116" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="48" fill="#ffffff" letter-spacing="1.5">REC</text>
+              </svg>
+            </div>
           </div>
 
-          <!-- Selo verificado corrigido: 26px x 26px dourado sólido, borda recorte 3px #140826, fora de overflow-hidden -->
+          <!-- Selo verificado dourado sólido único (26x26px) com borda recorte limpa #140826 -->
           <span
             title="Perfil oficial verificado"
             aria-label="Perfil oficial verificado"
@@ -117,17 +154,18 @@
           </span>
         </div>
 
-        <!-- Handle @leonidarecbr: '@' branco e 'leonidarecbr' em gradiente neon -->
-        <h1 class="mt-4 font-display text-2xl sm:text-3xl font-black tracking-tight">
-          <span class="text-white">@</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ff66e0] via-[#ff6a2b] to-[#fbbf24]">leonidarecbr</span>
+        <!-- Handle @leonidarecbr com gradiente Vice City completo começando no '@' (zero branco) -->
+        <h1 class="mt-4 font-display text-2xl sm:text-3xl font-black tracking-tight inline-block drop-shadow-[0_2px_14px_rgba(255,46,196,0.38)]"
+            style="background: linear-gradient(90deg, #ff2ec4 0%, #ff6a2b 52%, #fbbf24 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+          @leonidarecbr
         </h1>
 
-        <!-- Subtítulo com destaque nas lojas e nicho -->
+        <!-- Subtítulo oficial -->
         <p class="mt-1.5 text-sm sm:text-base font-medium text-slate-200 leading-relaxed max-w-xl">
           Achadinhos Gamer • <span class="text-[#fbbf24] font-bold">GTA VI &amp; Setup</span> (<span class="text-[#fbbf24] font-bold">Mercado Livre</span> &amp; <span class="text-[#ff6a2b] font-bold">Shopee</span>)
         </p>
 
-        <!-- Selos compactos de confiança -->
+        <!-- Selos de confiança -->
         <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
           <span class="inline-flex items-center gap-1.5 rounded-full bg-[#0b0416]/90 border border-[#ff00cc]/30 px-3 py-1.5 text-[11px] sm:text-xs font-semibold text-slate-100">
             <span class="text-[#fbbf24]">✓</span> Links Oficiais Verificados
@@ -142,9 +180,8 @@
       </div>
     </header>
 
-    <!-- 2. BARRA DE BUSCA INSTANTÂNEA E CHIPS DE FILTRO -->
+    <!-- 2. BARRA DE BUSCA INSTANTÂNEA E FILTROS HORIZONTAIS -->
     <section aria-label="Busca e filtros rápidos" class="mt-5 sm:mt-6 space-y-3.5">
-      <!-- Campo de busca -->
       <div class="relative">
         <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -190,14 +227,14 @@
         </button>
       </div>
 
-      <!-- Cabeçalho de contagem -->
+      <!-- Barra da seção -->
       <div class="flex items-center justify-between px-1">
         <h2 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">LOJA OFICIAL @LEONIDARECBR</h2>
         <span id="contador-produtos" class="text-xs font-bold text-[#fbbf24]">9 ofertas ativas hoje</span>
       </div>
     </section>
 
-    <!-- 3. GRADE DE PRODUTOS (1 col mobile / 2 col tablet / 3 col desktop) -->
+    <!-- 3. GRADE DE PRODUTOS -->
     <section id="grade-produtos" aria-label="Catálogo de ofertas gamer"
              class="mt-3.5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
     </section>
@@ -212,32 +249,32 @@
       </button>
     </div>
 
-    <!-- 4. RODAPÉ + BOTÃO DO EDITOR MOBILE -->
+    <!-- 4. RODAPÉ + BOTÃO DISCRETO DO EDITOR -->
     <footer class="mt-12 pt-6 border-t border-white/10 text-center space-y-4">
       <div class="space-y-1">
         <p class="text-xs sm:text-sm font-semibold text-slate-300">
-          Links oficiais de afiliado Mercado Livre e Shopee • @leonidarecbr
+          @leonidarecbr • Links de afiliado selecionados
         </p>
         <p class="text-[11px] text-slate-400">
-          Você compra direto nas lojas oficiais sem pagar nada a mais por isso.
+          Você compra direto nas lojas oficiais Mercado Livre e Shopee sem pagar nada a mais por isso.
         </p>
       </div>
 
       <div class="flex items-center justify-center">
         <button id="btn-abrir-editor" type="button"
-                class="inline-flex items-center gap-2 rounded-full bg-[#140826] border border-white/15 hover:border-[#fbbf24]/60 px-4 py-2.5 text-xs font-bold text-slate-200 hover:text-white active:scale-95 transition">
+                class="inline-flex items-center gap-2 rounded-full bg-[#140826] border border-white/15 hover:border-[#fbbf24]/60 px-4 py-2.5 text-xs font-bold text-slate-300 hover:text-white active:scale-95 transition">
           <span>⚙️</span>
           <span>Editar links / fotos</span>
         </button>
       </div>
 
       <p class="text-[11px] text-slate-500">
-        © <span id="ano-atual">2026</span> @leonidarecbr • Leonida / Vice City Edition
+        © <span id="ano-atual">2026</span> @leonidarecbr • Leonida Edition
       </p>
     </footer>
   </main>
 
-  <!-- 5. MODAL / DRAWER MOBILE PARA EDITAR LINKS E FOTOS -->
+  <!-- 5. MODAL MOBILE PARA EDITAR LINKS / FOTOS E COPIAR HTML LIMPO -->
   <div id="modal-editor" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-editor">
     <div class="w-full max-w-lg max-h-[92vh] rounded-t-3xl sm:rounded-3xl bg-[#140826] border border-white/15 flex flex-col overflow-hidden shadow-2xl">
 
@@ -245,7 +282,7 @@
       <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[#0b0416]/90">
         <div>
           <h2 id="titulo-modal-editor" class="text-base font-extrabold text-white">⚙️ Editar links / fotos</h2>
-          <p class="text-[11px] text-slate-400">Ajuste pelo celular e copie o HTML pronto para o GitHub</p>
+          <p class="text-[11px] text-slate-400">Atualize pelo celular e copie o index.html puro para o GitHub</p>
         </div>
         <button id="btn-fechar-modal" type="button" aria-label="Fechar editor"
                 class="w-9 h-9 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white flex items-center justify-center active:scale-95 transition">
@@ -255,10 +292,10 @@
 
       <!-- Conteúdo rolável -->
       <div class="flex-1 overflow-y-auto p-4 space-y-4">
-        <!-- Botão principal de cópia para Android + GitHub Pages -->
+        <!-- Ações de exportação do HTML puro -->
         <div class="rounded-2xl bg-[#0b0416] border border-[#fbbf24]/45 p-3.5 space-y-2.5">
           <p class="text-xs text-slate-300 leading-relaxed">
-            Após editar qualquer produto ou foto, toque abaixo para copiar o código completo e colar no seu <strong class="text-white">index.html</strong> do GitHub:
+            Depois de ajustar qualquer link ou foto, toque abaixo para copiar o código completo (sem marcações extras) e colar no seu <strong class="text-white">index.html</strong> do GitHub:
           </p>
           <button id="btn-copiar-html" type="button"
                   class="w-full rounded-xl bg-gradient-to-r from-[#ff00cc] via-[#ff6a2b] to-[#fbbf24] text-white font-black text-xs sm:text-sm py-3.5 px-4 shadow-lg shadow-[#ff00cc]/25 active:scale-[0.98] transition">
@@ -266,11 +303,11 @@
           </button>
           <button id="btn-baixar-html" type="button"
                   class="w-full rounded-xl bg-[#140826] border border-white/15 hover:border-[#fbbf24]/60 text-slate-200 font-bold text-xs py-2.5 px-3 active:scale-[0.98] transition">
-            ⬇️ Ou baixar arquivo index.html
+            ⬇️ Baixar arquivo index.html
           </button>
         </div>
 
-        <!-- Campo opcional para trocar a foto de perfil -->
+        <!-- Campo para alterar a foto de perfil -->
         <div class="rounded-2xl bg-[#0b0416] border border-[#ff00cc]/30 p-3.5 space-y-2">
           <label for="campo-foto-perfil" class="block text-xs font-extrabold text-[#ff99eb]">
             Foto de perfil do topo (arquivo no GitHub ou URL)
@@ -288,7 +325,7 @@
           </p>
         </div>
 
-        <!-- Barra de título dos produtos + restaurar padrão -->
+        <!-- Cabeçalho dos 9 produtos -->
         <div class="flex items-center justify-between gap-2">
           <span class="text-xs font-bold text-slate-300">Seus 9 produtos oficiais</span>
           <button id="btn-pedir-restaurar" type="button"
@@ -297,7 +334,7 @@
           </button>
         </div>
 
-        <!-- Confirmação inline sem confirm() -->
+        <!-- Confirmação inline (sem confirm()) -->
         <div id="caixa-confirmar-restaurar" class="hidden rounded-2xl bg-red-500/10 border border-red-500/40 p-3 text-xs text-red-200 space-y-2">
           <p class="font-semibold">Descartar edições locais e restaurar os 9 links padrão?</p>
           <div class="flex gap-2">
@@ -350,7 +387,7 @@
           </div>
 
           <div>
-            <label for="campo-imagem" class="block text-[11px] font-bold text-[#ff99eb] mb-1">URL da foto real (opcional — vazio usa a arte SVG)</label>
+            <label for="campo-imagem" class="block text-[11px] font-bold text-[#ff99eb] mb-1">URL da foto real (opcional — vazio usa arte SVG)</label>
             <input id="campo-imagem" type="url" placeholder="https://..."
                    class="w-full rounded-xl bg-[#140826] border border-white/15 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#ff00cc]">
           </div>
@@ -367,7 +404,7 @@
     </div>
   </div>
 
-  <!-- Toast de notificação visual (substitui alert()) -->
+  <!-- Toast de notificação visual (sem alert()) -->
   <div id="toast-container" role="status" aria-live="polite"
        class="pointer-events-none fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] w-[92%] max-w-md opacity-0 translate-y-3 transition-all duration-300">
     <div id="toast-texto" class="rounded-2xl bg-[#140826] border border-[#fbbf24]/70 px-4 py-3 text-xs font-bold text-white shadow-2xl text-center"></div>
@@ -391,7 +428,7 @@
         loja: "Mercado Livre",
         categoria: "Consoles & Jogos",
         badge: "MAIS PROCURADO",
-        subtitulo: "Garanta a mídia física para explorar Leonida desde o lançamento.",
+        subtitulo: "Garanta a mídia física para explorar Leonida desde o primeiro dia.",
         status: "Oferta ativa hoje • Ver preço atualizado",
         url: "https://meli.la/2GmedmS",
         imagem: ""
@@ -414,7 +451,7 @@
         titulo: "Controle Xbox Wireless Original (Series X|S / PC)",
         loja: "Mercado Livre",
         categoria: "Consoles & Jogos",
-        badge: "PC & XBOX",
+        badge: "ORIGINAL XBOX",
         subtitulo: "Pegada texturizada, baixa latência e compatível com Xbox e PC.",
         status: "Oferta ativa hoje • Ver preço atualizado",
         url: "https://meli.la/2cfQxcY",
@@ -439,7 +476,7 @@
         loja: "Mercado Livre",
         categoria: "Setup & RGB",
         badge: "CUSTO-BENEFÍCIO",
-        subtitulo: "Som imersivo, conforto leve e microfone com mute giratório.",
+        subtitulo: "Áudio imersivo, conforto leve e microfone com mute giratório.",
         status: "Oferta ativa hoje • Ver preço atualizado",
         url: "https://meli.la/27zz1Qp",
         imagem: ""
@@ -474,7 +511,7 @@
         titulo: "Mousepad Gamer Extra Grande RGB",
         loja: "Shopee",
         categoria: "Setup & RGB",
-        badge: "SETUP NEON",
+        badge: "SETUP GAMER",
         subtitulo: "Cobre teclado e mouse com borda RGB vibrante e base antiderrapante.",
         status: "Oferta ativa hoje • Ver preço atualizado",
         url: "https://s.shopee.com.br/5LDdRWL5wi",
@@ -486,7 +523,7 @@
         titulo: "Fita LED RGB para Setup / TV (com App)",
         loja: "Shopee",
         categoria: "Setup & RGB",
-        badge: "CLIMA LEONIDA",
+        badge: "CLIMA VICE CITY",
         subtitulo: "Controle cores e efeitos pelo app para transformar o clima do setup.",
         status: "Oferta ativa hoje • Ver preço atualizado",
         url: "https://s.shopee.com.br/7AfHcwzIg9",
@@ -496,70 +533,40 @@
     // === FIM_CONFIG ===
 
     // =========================================================================
-    // FALLBACK DO AVATAR EM CASCATA: perfil.jpg -> 1001193376.jpg -> SVG DATA URI
+    // FALLBACK DO AVATAR EM CASCATA: perfil.jpg -> 1001193376.jpg -> SVG INLINE
     // =========================================================================
-    const LOGO_REC_SVG = [
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">',
-      '<defs>',
-      '<linearGradient id="sun" x1="0.5" y1="0" x2="0.5" y2="1">',
-      '<stop offset="0%" stop-color="#ff00e1"/>',
-      '<stop offset="48%" stop-color="#ff2e88"/>',
-      '<stop offset="100%" stop-color="#ff7a29"/>',
-      '</linearGradient>',
-      '<radialGradient id="halo" cx="50%" cy="50%" r="50%">',
-      '<stop offset="0%" stop-color="#ff00cc" stop-opacity="0.6"/>',
-      '<stop offset="65%" stop-color="#ff6a2b" stop-opacity="0.22"/>',
-      '<stop offset="100%" stop-color="#120324" stop-opacity="0"/>',
-      '</radialGradient>',
-      '<radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">',
-      '<stop offset="0%" stop-color="#ff1a24" stop-opacity="0.9"/>',
-      '<stop offset="100%" stop-color="#ff1a24" stop-opacity="0"/>',
-      '</radialGradient>',
-      '</defs>',
-      '<circle cx="100" cy="100" r="100" fill="#120324"/>',
-      '<circle cx="100" cy="100" r="92" fill="#17042e"/>',
-      '<circle cx="100" cy="100" r="82" fill="url(#halo)"/>',
-      '<circle cx="100" cy="100" r="61" fill="url(#sun)"/>',
-      '<path d="M10 176 Q56 160 102 175 Q148 189 190 166 L200 200 L0 200 Z" fill="#0b0217"/>',
-      '<path d="M36 184 Q34 156 29 135" stroke="#0b0217" stroke-width="5.2" fill="none" stroke-linecap="round"/>',
-      '<path d="M29 135 Q15 129 8 139 M29 135 Q18 120 29 116 M29 135 Q39 121 51 127 M29 135 Q43 135 52 147 M29 135 Q20 140 16 152" stroke="#0b0217" stroke-width="3.6" fill="none" stroke-linecap="round"/>',
-      '<path d="M57 186 Q55 168 51 153" stroke="#0b0217" stroke-width="3.8" fill="none" stroke-linecap="round"/>',
-      '<path d="M51 153 Q40 149 36 158 M51 153 Q47 142 58 143 M51 153 Q62 149 67 159" stroke="#0b0217" stroke-width="2.8" fill="none" stroke-linecap="round"/>',
-      '<path d="M149 186 Q150 164 145 147" stroke="#0b0217" stroke-width="4.2" fill="none" stroke-linecap="round"/>',
-      '<path d="M145 147 Q133 142 127 150 M145 147 Q139 135 151 135 M145 147 Q157 142 164 150 M145 147 Q155 154 159 164" stroke="#0b0217" stroke-width="3" fill="none" stroke-linecap="round"/>',
-      '<path d="M174 182 Q178 154 184 134" stroke="#0b0217" stroke-width="4.8" fill="none" stroke-linecap="round"/>',
-      '<path d="M184 134 Q170 128 164 138 M184 134 Q178 120 190 120 M184 134 Q194 128 198 138" stroke="#0b0217" stroke-width="3.4" fill="none" stroke-linecap="round"/>',
-      '<circle cx="42" cy="100" r="24" fill="url(#dotGlow)"/>',
-      '<circle cx="42" cy="100" r="18" fill="#ff1624"/>',
-      '<text x="123" y="116" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="48" fill="#ffffff" letter-spacing="1.5">REC</text>',
-      '</svg>'
-    ].join("");
-
-    const LOGO_REC_DATA_URI = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(LOGO_REC_SVG);
-
     function tratarErroAvatar(imgEl) {
       if (!imgEl) return;
       const etapa = Number(imgEl.dataset.fallbackStep || "0");
-      if (etapa === 0 && !String(imgEl.getAttribute("src") || "").endsWith("1001193376.jpg")) {
+      const srcAtual = String(imgEl.getAttribute("src") || "");
+
+      // Etapa 0 -> tenta 1001193376.jpg
+      if (etapa === 0 && !srcAtual.endsWith("1001193376.jpg")) {
         imgEl.dataset.fallbackStep = "1";
         imgEl.src = "1001193376.jpg";
         return;
       }
-      if (etapa <= 1) {
-        imgEl.dataset.fallbackStep = "2";
-        imgEl.onerror = null;
-        imgEl.src = LOGO_REC_DATA_URI;
-      }
+
+      // Etapa final -> oculta <img> e revela a réplica SVG vetorial da logo REC
+      imgEl.dataset.fallbackStep = "2";
+      imgEl.onerror = null;
+      imgEl.classList.add("hidden");
+      const svgFallback = document.getElementById("avatar-svg-fallback");
+      if (svgFallback) svgFallback.classList.remove("hidden");
     }
 
     function aplicarFotoPerfil(caminho) {
       const img = document.getElementById("avatar-img");
+      const svgFallback = document.getElementById("avatar-svg-fallback");
       const srcLimpo = String(caminho || "perfil.jpg").trim() || "perfil.jpg";
-      if (!img) return;
 
-      img.dataset.fallbackStep = "0";
-      img.onerror = function () { tratarErroAvatar(this); };
-      img.src = srcLimpo;
+      if (svgFallback) svgFallback.classList.add("hidden");
+      if (img) {
+        img.classList.remove("hidden");
+        img.dataset.fallbackStep = "0";
+        img.onerror = function () { tratarErroAvatar(this); };
+        img.src = srcLimpo;
+      }
 
       const linkIcon = document.querySelector('link[rel="icon"]');
       if (linkIcon) linkIcon.setAttribute("href", srcLimpo);
@@ -909,9 +916,9 @@
     };
 
     // =========================================================================
-    // ESTADO, ARMAZENAMENTO LOCAL E TEMPLATE PARA EXPORTAÇÃO LIMPA
+    // ESTADO, ARMAZENAMENTO LOCAL E EXPORTAÇÃO LIMPA (HTML PURO)
     // =========================================================================
-    const STORAGE_KEY = "leonidarecbr_loja_v4";
+    const STORAGE_KEY = "leonidarecbr_loja_v5";
     let TEMPLATE_HTML_LIMPO = "";
     let estado = carregarEstado();
     let filtroAtivo = "todos";
@@ -921,8 +928,9 @@
     function capturarTemplateLimpo() {
       try {
         const cloneDoc = document.documentElement.cloneNode(true);
-        // Remove blocos <style> injetados em tempo de execução pelo Tailwind CDN
+        // Remove <style> injetados dinamicamente pelo Tailwind CDN
         cloneDoc.querySelectorAll("style").forEach((el) => el.remove());
+
         const gradeClone = cloneDoc.querySelector("#grade-produtos");
         if (gradeClone) gradeClone.innerHTML = "";
         const listaEdClone = cloneDoc.querySelector("#lista-itens-editor");
@@ -931,12 +939,17 @@
         if (avisoClone) avisoClone.classList.add("hidden");
         const modalClone = cloneDoc.querySelector("#modal-editor");
         if (modalClone) modalClone.classList.add("hidden");
+
         const avatarClone = cloneDoc.querySelector("#avatar-img");
         if (avatarClone) {
+          avatarClone.classList.remove("hidden");
           avatarClone.removeAttribute("data-fallback-step");
           avatarClone.setAttribute("src", CONFIG_LOJA.fotoPerfil || "perfil.jpg");
           avatarClone.setAttribute("onerror", "tratarErroAvatar(this)");
         }
+        const svgFallbackClone = cloneDoc.querySelector("#avatar-svg-fallback");
+        if (svgFallbackClone) svgFallbackClone.classList.add("hidden");
+
         TEMPLATE_HTML_LIMPO = "<!DOCTYPE html>\n" + cloneDoc.outerHTML;
       } catch (err) {
         console.error("Falha ao capturar template HTML limpo:", err);
@@ -1019,7 +1032,7 @@
     }
 
     /**
-     * Copia texto com segurança via execCommand('copy') para máxima compatibilidade em iframes e Android.
+     * Copia texto com segurança via execCommand('copy') para compatibilidade em iframes e Android.
      */
     function copiarTexto(texto) {
       const area = document.createElement("textarea");
@@ -1059,9 +1072,9 @@
         let cls = "chip-filtro shrink-0 rounded-full px-4 py-2.5 text-xs border transition active:scale-95 ";
 
         if (ativo && chave === "ml") {
-          cls += "font-extrabold bg-[#FFE600] text-[#0b0416] border-[#FFE600] shadow-md shadow-[#FFE600]/25";
+          cls += "font-extrabold bg-[#ffe600] text-[#0b0416] border-[#ffe600] shadow-md shadow-[#ffe600]/25";
         } else if (ativo && chave === "shopee") {
-          cls += "font-extrabold bg-[#EE4D2D] text-white border-[#EE4D2D] shadow-md shadow-[#EE4D2D]/25";
+          cls += "font-extrabold bg-[#ee4d2d] text-white border-[#ee4d2d] shadow-md shadow-[#ee4d2d]/25";
         } else if (ativo) {
           cls += "font-extrabold bg-gradient-to-r from-[#ff00cc] to-[#ff6a2b] text-white border-transparent shadow-md shadow-[#ff00cc]/25";
         } else {
@@ -1107,14 +1120,14 @@
       grade.innerHTML = visiveis.map((p) => {
         const ehML = p.loja === "Mercado Livre";
         const pillLojaCls = ehML
-          ? "bg-[#FFE600] text-[#0b0416] shadow-md shadow-black/40"
-          : "bg-[#EE4D2D] text-white shadow-md shadow-black/40";
+          ? "bg-[#ffe600] text-[#0b0416] shadow-md shadow-black/40"
+          : "bg-[#ee4d2d] text-white shadow-md shadow-black/40";
         const ctaCls = ehML
-          ? "bg-[#FFE600] hover:bg-[#f5dc00] text-[#0b0416] shadow-lg shadow-[#FFE600]/20"
-          : "bg-[#EE4D2D] hover:bg-[#d93f20] text-white shadow-lg shadow-[#EE4D2D]/25";
+          ? "bg-[#ffe600] hover:bg-[#f5dc00] text-[#0b0416] shadow-lg shadow-[#ffe600]/25"
+          : "bg-[#ee4d2d] hover:bg-[#d93f20] text-white shadow-lg shadow-[#ee4d2d]/30";
         const ctaLabel = ehML
-          ? "Ver Oferta no Mercado Livre ↗"
-          : "Ver Oferta na Shopee ↗";
+          ? "Ver oferta no Mercado Livre ↗"
+          : "Ver oferta na Shopee ↗";
 
         const svgArte = ARTES_SVG[p.arte] || ARTES_SVG.gtavi;
         const imgCustom = p.imagem && /^https?:\/\//i.test(p.imagem.trim()) ? p.imagem.trim() : "";
@@ -1147,7 +1160,7 @@
               ` : ""}
             </div>
 
-            <!-- Informações do card -->
+            <!-- Detalhes do produto -->
             <div class="flex flex-1 flex-col p-4 sm:p-5">
               <span class="text-[11px] font-bold uppercase tracking-wider text-[#ff99eb]">
                 ${escaparHtml(p.categoria)}
@@ -1168,7 +1181,7 @@
               </div>
 
               <!-- Botão CTA oficial -->
-              <a href="${escaparHtml(urlSegura)}" target="_blank" rel="noopener noreferrer sponsored"
+              <a href="${escaparHtml(urlSegura)}" target="_blank" rel="noopener noreferrer"
                  class="mt-3 w-full inline-flex items-center justify-center rounded-2xl py-3.5 px-4 text-sm font-black tracking-tight transition active:scale-[0.98] ${ctaCls}">
                 ${ctaLabel}
               </a>
@@ -1179,7 +1192,7 @@
     }
 
     // =========================================================================
-    // MODAL EDITOR DE LINKS E FOTOS (OTIMIZADO PARA ANDROID)
+    // MODAL EDITOR DE LINKS E FOTOS (OTIMIZADO PARA CELULAR)
     // =========================================================================
     function renderizarListaEditor() {
       const lista = document.getElementById("lista-itens-editor");
@@ -1189,7 +1202,7 @@
 
       lista.innerHTML = estado.produtos.map((p, idx) => {
         const ehML = p.loja === "Mercado Livre";
-        const corLoja = ehML ? "bg-[#FFE600] text-[#0b0416]" : "bg-[#EE4D2D] text-white";
+        const corLoja = ehML ? "bg-[#ffe600] text-[#0b0416]" : "bg-[#ee4d2d] text-white";
         const temFoto = Boolean(p.imagem && /^https?:\/\//i.test(p.imagem.trim()));
 
         return `
@@ -1259,7 +1272,7 @@
       saida = saida.replace(/<link rel="icon" href="[^"]*"\s*\/?>/i, `<link rel="icon" href="${fotoEsc}">`);
       saida = saida.replace(/<meta property="og:image" content="[^"]*"\s*\/?>/i, `<meta property="og:image" content="${fotoEsc}">`);
       saida = saida.replace(/(<img[^>]*id="avatar-img"[^>]*\ssrc=")[^"]*(")/i, `$1${fotoEsc}$2`);
-      return saida;
+      return saida.trim();
     }
 
     function abrirModal() {
@@ -1285,7 +1298,7 @@
       const elAno = document.getElementById("ano-atual");
       if (elAno) elAno.textContent = String(new Date().getFullYear());
 
-      // Aplica a foto de perfil configurada com cascata automática
+      // Aplica a foto de perfil com fallback automático
       aplicarFotoPerfil(estado.fotoPerfil);
 
       // Compartilhar Loja (Web Share API + fallback cópia com toast)
@@ -1425,7 +1438,7 @@
         mostrarToast("Loja restaurada para os 9 links padrão.");
       });
 
-      // Copiar código index.html atualizado
+      // Copiar código index.html puro
       document.getElementById("btn-copiar-html")?.addEventListener("click", () => {
         try {
           const html = gerarHtmlCompleto();
@@ -1440,7 +1453,7 @@
         }
       });
 
-      // Baixar arquivo index.html atualizado
+      // Baixar arquivo index.html puro
       document.getElementById("btn-baixar-html")?.addEventListener("click", () => {
         try {
           const html = gerarHtmlCompleto();
