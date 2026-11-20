@@ -1,1484 +1,923 @@
-```html
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Achadinhos Gamer • GTA VI & Setup (Mercado Livre & Shopee) selecionados por @leonidarecbr.">
-  <meta name="theme-color" content="#0b0416">
-  <meta property="og:title" content="Loja Oficial @leonidarecbr • Achadinhos Gamer GTA VI">
-  <meta property="og:description" content="Achadinhos Gamer • GTA VI & Setup (Mercado Livre & Shopee) com links oficiais verificados.">
-  <meta property="og:image" content="perfil.jpg">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="perfil.jpg">
-  <title>Loja Oficial @leonidarecbr • Achadinhos Gamer GTA VI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0416" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none';" />
+  <title>@leonidarecbr • Achadinhos Gamer &amp; GTA VI</title>
+  <meta name="description" content="Loja oficial @leonidarecbr — GTA VI, controles, headsets e setup gamer com links oficiais do Mercado Livre e Shopee." />
+  <meta property="og:title" content="@leonidarecbr • Loja Oficial Gamer" />
+  <meta property="og:description" content="Achadinhos Gamer • GTA VI &amp; Setup com links oficiais verificados (Mercado Livre &amp; Shopee)." />
+  <meta property="og:image" content="perfil.jpg" />
+  <link rel="icon" type="image/jpeg" href="perfil.jpg" />
+  <style>
+    :root {
+      --bg-0: #090312;
+      --bg-1: #130724;
+      --card: rgba(23, 10, 42, 0.92);
+      --card-solid: #170a2a;
+      --border: rgba(255, 43, 214, 0.22);
+      --border-soft: rgba(255, 255, 255, 0.1);
+      --pink: #ff2bd6;
+      --coral: #ff6a2b;
+      --gold: #fbbf24;
+      --ml: #ffe600;
+      --shopee: #ee4d2d;
+      --text: #f8f5ff;
+      --muted: #b8accf;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
 
-  <!-- Fontes modernas (Inter e Plus Jakarta Sans) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
-            display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            leonidaBg: '#0b0416',
-            leonidaSurface: '#140826',
-            viceMagenta: '#ff00cc',
-            viceOrange: '#ff6a2b',
-            viceGold: '#fbbf24',
-            meliYellow: '#ffe600',
-            shopeeOrange: '#ee4d2d',
-          }
-        }
-      }
-    };
-  </script>
+    html, body {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(255, 43, 214, 0.22), transparent 42%),
+        radial-gradient(circle at 90% 10%, rgba(255, 106, 43, 0.18), transparent 40%),
+        linear-gradient(180deg, #0b0416 0%, #090312 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 16px 14px 40px;
+    }
+
+    .hero {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px 22px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--pink), var(--coral), var(--gold));
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .pill-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255, 43, 214, 0.12);
+      border: 1px solid rgba(255, 43, 214, 0.35);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #ffd8f6;
+      text-transform: uppercase;
+    }
+
+    .dot-rec {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff2546;
+      box-shadow: 0 0 10px #ff2546;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    .btn-share {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-share:active {
+      transform: scale(0.96);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 104px;
+      height: 104px;
+      margin: 0 auto 14px;
+    }
+
+    .avatar-ring {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--pink), var(--coral), var(--gold));
+      box-shadow: 0 0 28px rgba(255, 43, 214, 0.38);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: #140624;
+    }
+
+    .verified-badge {
+      position: absolute;
+      right: 1px;
+      bottom: 1px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--card-solid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+    }
+
+    .verified-badge svg {
+      width: 14px;
+      height: 14px;
+      display: block;
+    }
+
+    .brand-title {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      line-height: 1.15;
+    }
+
+    .brand-gradient {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff2bd6 0%, #ff6a2b 52%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 340px;
+      margin: 0 auto 16px;
+    }
+
+    .hero-sub .hl-gold { color: var(--gold); font-weight: 700; }
+    .hero-sub .hl-ml { color: var(--ml); font-weight: 700; }
+    .hero-sub .hl-sh { color: #ff6b4a; font-weight: 700; }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      font-size: 12px;
+      font-weight: 600;
+      color: #eae4f7;
+    }
+
+    .search-box {
+      position: relative;
+      margin: 16px 0 12px;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 17px;
+      height: 17px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 13px 16px 13px 44px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(20, 8, 38, 0.9);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-input::placeholder { color: #8c7ea6; }
+
+    .search-input:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px rgba(255, 43, 214, 0.18);
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      scrollbar-width: none;
+    }
+
+    .filters::-webkit-scrollbar { display: none; }
+
+    .filter-btn {
+      flex: 0 0 auto;
+      padding: 9px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e4ddf2;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(90deg, var(--pink), var(--coral));
+      border-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(255, 43, 214, 0.32);
+    }
+
+    .section-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 4px 2px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .section-bar .left {
+      color: #cfc5e3;
+      text-transform: uppercase;
+    }
+
+    .section-bar .right {
+      color: var(--gold);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42);
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 43, 214, 0.42);
+      transform: translateY(-2px);
+    }
+
+    .card-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #1b0b33 0%, #2a0d47 55%, #160728 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .badge-store {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    .badge-ml {
+      background: var(--ml);
+      color: #1a1600;
+    }
+
+    .badge-shopee {
+      background: var(--shopee);
+      color: #ffffff;
+    }
+
+    .badge-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(11, 4, 22, 0.85);
+      border: 1px solid rgba(251, 191, 36, 0.48);
+      color: var(--gold);
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .card-body {
+      padding: 15px 16px 16px;
+    }
+
+    .card-cat {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #b799e8;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .btn-buy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 13px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: transform 0.14s ease, filter 0.14s ease;
+    }
+
+    .btn-buy:active { transform: scale(0.98); }
+
+    .btn-buy-ml {
+      background: linear-gradient(90deg, #ffe600 0%, #fbbf24 100%);
+      color: #171200;
+      box-shadow: 0 8px 20px rgba(251, 191, 36, 0.25);
+    }
+
+    .btn-buy-shopee {
+      background: linear-gradient(90deg, #ee4d2d 0%, #ff6a2b 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(238, 77, 45, 0.3);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 36px 18px;
+      background: var(--card);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 12px;
+      color: #8f82a8;
+      padding: 14px 8px 6px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer strong { color: #d9ceee; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(20, 8, 38, 0.96);
+      border: 1px solid rgba(251, 191, 36, 0.55);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 99;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
 </head>
-<body class="bg-[#0b0416] text-slate-100 font-sans antialiased min-h-screen overflow-x-hidden selection:bg-[#ff00cc] selection:text-white">
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="hero-top">
+        <span class="pill-live">
+          <span class="dot-rec" aria-hidden="true"></span>
+          Loja Oficial
+        </span>
+        <button type="button" class="btn-share" id="shareBtn" aria-label="Compartilhar loja">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          Compartilhar Loja
+        </button>
+      </div>
 
-  <!-- Brilho ambiente neon estilo Vice City / Leonida -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10" aria-hidden="true">
-    <div class="absolute -top-28 -left-24 w-80 h-80 sm:w-[440px] sm:h-[440px] rounded-full bg-[#ff00cc]/20 blur-3xl"></div>
-    <div class="absolute -top-24 -right-24 w-80 h-80 sm:w-[440px] sm:h-[440px] rounded-full bg-[#ff6a2b]/20 blur-3xl"></div>
-    <div class="absolute top-80 left-1/2 -translate-x-1/2 w-96 h-56 rounded-full bg-[#fbbf24]/10 blur-3xl"></div>
-    <div class="absolute bottom-0 inset-x-0 h-64 bg-gradient-to-t from-[#140826]/75 to-transparent"></div>
-  </div>
-
-  <!-- Container principal responsivo (mobile-first) -->
-  <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 pt-5 sm:pt-8 pb-14">
-
-    <!-- Aviso de rascunho local (aparece somente quando você edita no modal) -->
-    <div id="aviso-rascunho" class="hidden mb-4 rounded-2xl border border-[#fbbf24]/50 bg-[#fbbf24]/10 px-4 py-3 text-xs text-[#fbbf24] flex flex-wrap items-center justify-between gap-2">
-      <span class="font-semibold leading-snug">Edições salvas na prévia. Copie o <strong class="font-black">index.html</strong> atualizado para colar no GitHub.</span>
-      <button id="btn-abrir-editor-topo" type="button" class="shrink-0 rounded-xl bg-[#fbbf24] text-[#0b0416] font-extrabold px-3.5 py-2 text-xs active:scale-95 transition">
-        Copiar HTML
-      </button>
-    </div>
-
-    <!-- 1. HERO CARD DA LOJA OFICIAL @LEONIDARECBR -->
-    <header class="relative rounded-3xl bg-[#140826]/95 border border-[#ff00cc]/20 p-5 sm:p-7 shadow-2xl shadow-[#ff00cc]/15 backdrop-blur-md">
-      <!-- Linha gradiente superior neon -->
-      <div class="absolute top-0 inset-x-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#ff00cc] via-[#ff6a2b] to-[#fbbf24]" aria-hidden="true"></div>
-
-      <div class="flex flex-col items-center text-center">
-        <!-- Barra superior: Pill LOJA OFICIAL + Botão Compartilhar Loja -->
-        <div class="w-full flex items-center justify-between gap-2 mb-5">
-          <span class="inline-flex items-center gap-2 rounded-full bg-[#ff00cc]/15 border border-[#ff00cc]/40 px-3 py-1.5 text-[11px] font-extrabold tracking-wide text-[#ff99eb]">
-            <span class="w-2 h-2 rounded-full bg-[#ff1a24] animate-pulse shadow-sm shadow-[#ff1a24]"></span>
-            LOJA OFICIAL
-          </span>
-
-          <button id="btn-compartilhar" type="button"
-                  class="inline-flex items-center gap-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#fbbf24]/60 px-3.5 py-2 text-xs font-bold text-slate-100 active:scale-95 transition">
-            <svg class="w-3.5 h-3.5 text-[#fbbf24]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="18" cy="5" r="3"></circle>
-              <circle cx="6" cy="12" r="3"></circle>
-              <circle cx="18" cy="19" r="3"></circle>
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-            </svg>
-            <span>Compartilhar Loja</span>
-          </button>
+      <div class="avatar-wrap">
+        <div class="avatar-ring">
+          <img id="avatarImg" class="avatar-img" src="perfil.jpg" alt="Logo @leonidarecbr" />
         </div>
+        <span class="verified-badge" title="Perfil Oficial Verificado" aria-label="Verificado">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#170a2a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+      </div>
 
-        <!-- Avatar circular 96px com anel neon + fallback em cascata (perfil.jpg -> 1001193376.jpg -> SVG REC) -->
-        <div class="relative w-24 h-24 mx-auto">
-          <!-- Brilho suave atrás do avatar -->
-          <div class="absolute -inset-1.5 rounded-full bg-gradient-to-br from-[#ff00cc] via-[#ff6a2b] to-[#fbbf24] opacity-55 blur-md pointer-events-none" aria-hidden="true"></div>
+      <h1 class="brand-title"><span class="brand-gradient">@leonidarecbr</span></h1>
+      <p class="hero-sub">
+        Achadinhos Gamer • <span class="hl-gold">GTA VI &amp; Setup</span>
+        (<span class="hl-ml">Mercado Livre</span> &amp; <span class="hl-sh">Shopee</span>)
+      </p>
 
-          <!-- Anel neon magenta para âmbar -->
-          <div class="relative w-full h-full rounded-full p-[3px] bg-gradient-to-br from-[#ff00cc] via-[#ff6a2b] to-[#fbbf24] shadow-xl shadow-[#ff00cc]/30">
-            <div class="w-full h-full rounded-full overflow-hidden bg-[#120324] relative">
-              <img
-                id="avatar-img"
-                src="perfil.jpg"
-                alt="Foto de perfil @leonidarecbr"
-                class="w-full h-full object-cover block"
-                onerror="tratarErroAvatar(this)"
-              />
-              <!-- Réplica vetorial fiel da logo REC (exibida automaticamente se a imagem não existir) -->
-              <svg id="avatar-svg-fallback" class="hidden w-full h-full block" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo REC @leonidarecbr">
-                <defs>
-                  <linearGradient id="rec-sun" x1="0.5" y1="0" x2="0.5" y2="1">
-                    <stop offset="0%" stop-color="#ff00e1"/>
-                    <stop offset="48%" stop-color="#ff2e88"/>
-                    <stop offset="100%" stop-color="#ff7a29"/>
-                  </linearGradient>
-                  <radialGradient id="rec-halo" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#ff00cc" stop-opacity="0.6"/>
-                    <stop offset="65%" stop-color="#ff6a2b" stop-opacity="0.22"/>
-                    <stop offset="100%" stop-color="#120324" stop-opacity="0"/>
-                  </radialGradient>
-                  <radialGradient id="rec-dot-glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#ff1a24" stop-opacity="0.9"/>
-                    <stop offset="100%" stop-color="#ff1a24" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-                <circle cx="100" cy="100" r="100" fill="#120324"/>
-                <circle cx="100" cy="100" r="92" fill="#17042e"/>
-                <circle cx="100" cy="100" r="82" fill="url(#rec-halo)"/>
-                <circle cx="100" cy="100" r="61" fill="url(#rec-sun)"/>
-                <path d="M10 176 Q56 160 102 175 Q148 189 190 166 L200 200 L0 200 Z" fill="#0b0217"/>
-                <path d="M36 184 Q34 156 29 135" stroke="#0b0217" stroke-width="5.2" fill="none" stroke-linecap="round"/>
-                <path d="M29 135 Q15 129 8 139 M29 135 Q18 120 29 116 M29 135 Q39 121 51 127 M29 135 Q43 135 52 147 M29 135 Q20 140 16 152" stroke="#0b0217" stroke-width="3.6" fill="none" stroke-linecap="round"/>
-                <path d="M57 186 Q55 168 51 153" stroke="#0b0217" stroke-width="3.8" fill="none" stroke-linecap="round"/>
-                <path d="M51 153 Q40 149 36 158 M51 153 Q47 142 58 143 M51 153 Q62 149 67 159" stroke="#0b0217" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-                <path d="M149 186 Q150 164 145 147" stroke="#0b0217" stroke-width="4.2" fill="none" stroke-linecap="round"/>
-                <path d="M145 147 Q133 142 127 150 M145 147 Q139 135 151 135 M145 147 Q157 142 164 150 M145 147 Q155 154 159 164" stroke="#0b0217" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <path d="M174 182 Q178 154 184 134" stroke="#0b0217" stroke-width="4.8" fill="none" stroke-linecap="round"/>
-                <path d="M184 134 Q170 128 164 138 M184 134 Q178 120 190 120 M184 134 Q194 128 198 138" stroke="#0b0217" stroke-width="3.4" fill="none" stroke-linecap="round"/>
-                <circle cx="42" cy="100" r="24" fill="url(#rec-dot-glow)"/>
-                <circle cx="42" cy="100" r="18" fill="#ff1624"/>
-                <text x="123" y="116" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="48" fill="#ffffff" letter-spacing="1.5">REC</text>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Selo verificado dourado sólido único (26x26px) com borda recorte limpa #140826 -->
-          <span
-            title="Perfil oficial verificado"
-            aria-label="Perfil oficial verificado"
-            class="absolute bottom-0 right-0 z-10 w-[26px] h-[26px] rounded-full bg-gradient-to-br from-[#fde047] to-[#f59e0b] border-[3px] border-[#140826] shadow-md shadow-black/70 flex items-center justify-center">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="#140826" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </span>
-        </div>
-
-        <!-- Handle @leonidarecbr com gradiente Vice City completo começando no '@' (zero branco) -->
-        <h1 class="mt-4 font-display text-2xl sm:text-3xl font-black tracking-tight inline-block drop-shadow-[0_2px_14px_rgba(255,46,196,0.38)]"
-            style="background: linear-gradient(90deg, #ff2ec4 0%, #ff6a2b 52%, #fbbf24 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
-          @leonidarecbr
-        </h1>
-
-        <!-- Subtítulo oficial -->
-        <p class="mt-1.5 text-sm sm:text-base font-medium text-slate-200 leading-relaxed max-w-xl">
-          Achadinhos Gamer • <span class="text-[#fbbf24] font-bold">GTA VI &amp; Setup</span> (<span class="text-[#fbbf24] font-bold">Mercado Livre</span> &amp; <span class="text-[#ff6a2b] font-bold">Shopee</span>)
-        </p>
-
-        <!-- Selos de confiança -->
-        <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-[#0b0416]/90 border border-[#ff00cc]/30 px-3 py-1.5 text-[11px] sm:text-xs font-semibold text-slate-100">
-            <span class="text-[#fbbf24]">✓</span> Links Oficiais Verificados
-          </span>
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-[#0b0416]/90 border border-[#ff6a2b]/30 px-3 py-1.5 text-[11px] sm:text-xs font-semibold text-slate-100">
-            <span>🛡️</span> Compra Segura ML &amp; Shopee
-          </span>
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-[#0b0416]/90 border border-[#fbbf24]/30 px-3 py-1.5 text-[11px] sm:text-xs font-semibold text-slate-100">
-            <span class="text-[#fbbf24]">⚡</span> Entrega Rápida
-          </span>
-        </div>
+      <div class="trust-row">
+        <span class="trust-chip">✓ Links Oficiais Verificados</span>
+        <span class="trust-chip">🛡️ Compra Segura ML &amp; Shopee</span>
+        <span class="trust-chip">⚡ Entrega Rápida</span>
       </div>
     </header>
 
-    <!-- 2. BARRA DE BUSCA INSTANTÂNEA E FILTROS HORIZONTAIS -->
-    <section aria-label="Busca e filtros rápidos" class="mt-5 sm:mt-6 space-y-3.5">
-      <div class="relative">
-        <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </span>
-        <input
-          id="campo-busca"
-          type="search"
-          placeholder="Buscar controle, GTA VI, headset, LED..."
-          autocomplete="off"
-          class="w-full rounded-2xl bg-[#140826] border border-white/10 pl-12 pr-11 py-3.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-[#ff00cc] focus:ring-2 focus:ring-[#ff00cc]/25 transition"
-        />
-        <button id="btn-limpar-busca" type="button" aria-label="Limpar busca"
-                class="hidden absolute inset-y-0 right-3 flex items-center justify-center w-8 text-slate-400 hover:text-white transition">
-          ✕
-        </button>
-      </div>
-
-      <!-- Chips horizontais de filtro -->
-      <div id="barra-filtros" role="group" aria-label="Filtrar produtos"
-           class="flex items-center gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        <button type="button" data-filtro="todos"
-                class="chip-filtro shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold border transition active:scale-95">
-          Todos (9)
-        </button>
-        <button type="button" data-filtro="ml"
-                class="chip-filtro shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold border transition active:scale-95">
-          Mercado Livre
-        </button>
-        <button type="button" data-filtro="shopee"
-                class="chip-filtro shrink-0 rounded-full px-4 py-2.5 text-xs font-extrabold border transition active:scale-95">
-          Shopee
-        </button>
-        <button type="button" data-filtro="cat-consoles"
-                class="chip-filtro shrink-0 rounded-full px-4 py-2.5 text-xs font-bold border transition active:scale-95">
-          Consoles &amp; Jogos
-        </button>
-        <button type="button" data-filtro="cat-setup"
-                class="chip-filtro shrink-0 rounded-full px-4 py-2.5 text-xs font-bold border transition active:scale-95">
-          Setup &amp; RGB
-        </button>
-      </div>
-
-      <!-- Barra da seção -->
-      <div class="flex items-center justify-between px-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">LOJA OFICIAL @LEONIDARECBR</h2>
-        <span id="contador-produtos" class="text-xs font-bold text-[#fbbf24]">9 ofertas ativas hoje</span>
-      </div>
-    </section>
-
-    <!-- 3. GRADE DE PRODUTOS -->
-    <section id="grade-produtos" aria-label="Catálogo de ofertas gamer"
-             class="mt-3.5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-    </section>
-
-    <!-- Estado vazio quando nenhum produto corresponde à busca -->
-    <div id="estado-vazio" class="hidden mt-5 rounded-3xl bg-[#140826] border border-white/10 p-8 text-center">
-      <p class="text-base font-extrabold text-white">Nenhum achadinho encontrado</p>
-      <p class="mt-1 text-xs text-slate-400">Limpe a busca ou volte para ver todas as 9 ofertas oficiais.</p>
-      <button id="btn-resetar-filtros" type="button"
-              class="mt-4 rounded-2xl bg-gradient-to-r from-[#ff00cc] to-[#ff6a2b] text-white font-extrabold text-xs px-5 py-3 active:scale-95 transition">
-        Ver todos os produtos
-      </button>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        id="searchInput"
+        class="search-input"
+        type="search"
+        placeholder="Buscar controle, GTA VI, headset, LED..."
+        autocomplete="off"
+        aria-label="Buscar produtos"
+      />
     </div>
 
-    <!-- 4. RODAPÉ + BOTÃO DISCRETO DO EDITOR -->
-    <footer class="mt-12 pt-6 border-t border-white/10 text-center space-y-4">
-      <div class="space-y-1">
-        <p class="text-xs sm:text-sm font-semibold text-slate-300">
-          @leonidarecbr • Links de afiliado selecionados
-        </p>
-        <p class="text-[11px] text-slate-400">
-          Você compra direto nas lojas oficiais Mercado Livre e Shopee sem pagar nada a mais por isso.
-        </p>
-      </div>
+    <nav class="filters" id="filterBar" aria-label="Filtros da loja"></nav>
 
-      <div class="flex items-center justify-center">
-        <button id="btn-abrir-editor" type="button"
-                class="inline-flex items-center gap-2 rounded-full bg-[#140826] border border-white/15 hover:border-[#fbbf24]/60 px-4 py-2.5 text-xs font-bold text-slate-300 hover:text-white active:scale-95 transition">
-          <span>⚙️</span>
-          <span>Editar links / fotos</span>
-        </button>
-      </div>
+    <div class="section-bar">
+      <span class="left">Loja Oficial @leonidarecbr</span>
+      <span class="right" id="resultCount">9 ofertas ativas hoje</span>
+    </div>
 
-      <p class="text-[11px] text-slate-500">
-        © <span id="ano-atual">2026</span> @leonidarecbr • Leonida Edition
-      </p>
+    <section class="grid" id="productGrid" aria-live="polite"></section>
+
+    <footer class="footer">
+      <p><strong>@leonidarecbr</strong> • Seleção oficial de achadinhos gamer.</p>
+      <p style="margin-top:4px;">Os preços e estoques são atualizados diretamente no Mercado Livre e na Shopee.</p>
     </footer>
   </main>
 
-  <!-- 5. MODAL MOBILE PARA EDITAR LINKS / FOTOS E COPIAR HTML LIMPO -->
-  <div id="modal-editor" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-editor">
-    <div class="w-full max-w-lg max-h-[92vh] rounded-t-3xl sm:rounded-3xl bg-[#140826] border border-white/15 flex flex-col overflow-hidden shadow-2xl">
-
-      <!-- Topo do modal -->
-      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[#0b0416]/90">
-        <div>
-          <h2 id="titulo-modal-editor" class="text-base font-extrabold text-white">⚙️ Editar links / fotos</h2>
-          <p class="text-[11px] text-slate-400">Atualize pelo celular e copie o index.html puro para o GitHub</p>
-        </div>
-        <button id="btn-fechar-modal" type="button" aria-label="Fechar editor"
-                class="w-9 h-9 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-white flex items-center justify-center active:scale-95 transition">
-          ✕
-        </button>
-      </div>
-
-      <!-- Conteúdo rolável -->
-      <div class="flex-1 overflow-y-auto p-4 space-y-4">
-        <!-- Ações de exportação do HTML puro -->
-        <div class="rounded-2xl bg-[#0b0416] border border-[#fbbf24]/45 p-3.5 space-y-2.5">
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Depois de ajustar qualquer link ou foto, toque abaixo para copiar o código completo (sem marcações extras) e colar no seu <strong class="text-white">index.html</strong> do GitHub:
-          </p>
-          <button id="btn-copiar-html" type="button"
-                  class="w-full rounded-xl bg-gradient-to-r from-[#ff00cc] via-[#ff6a2b] to-[#fbbf24] text-white font-black text-xs sm:text-sm py-3.5 px-4 shadow-lg shadow-[#ff00cc]/25 active:scale-[0.98] transition">
-            📋 Copiar código index.html atualizado
-          </button>
-          <button id="btn-baixar-html" type="button"
-                  class="w-full rounded-xl bg-[#140826] border border-white/15 hover:border-[#fbbf24]/60 text-slate-200 font-bold text-xs py-2.5 px-3 active:scale-[0.98] transition">
-            ⬇️ Baixar arquivo index.html
-          </button>
-        </div>
-
-        <!-- Campo para alterar a foto de perfil -->
-        <div class="rounded-2xl bg-[#0b0416] border border-[#ff00cc]/30 p-3.5 space-y-2">
-          <label for="campo-foto-perfil" class="block text-xs font-extrabold text-[#ff99eb]">
-            Foto de perfil do topo (arquivo no GitHub ou URL)
-          </label>
-          <div class="flex gap-2">
-            <input id="campo-foto-perfil" type="text" placeholder="perfil.jpg"
-                   class="flex-1 rounded-xl bg-[#140826] border border-white/15 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#ff00cc]">
-            <button id="btn-salvar-foto-perfil" type="button"
-                    class="shrink-0 rounded-xl bg-[#fbbf24] text-[#0b0416] font-extrabold text-xs px-3.5 py-2.5 active:scale-95 transition">
-              Aplicar
-            </button>
-          </div>
-          <p class="text-[11px] text-slate-400">
-            Cascata automática: <code class="text-[#fbbf24]">perfil.jpg</code> → <code class="text-slate-300">1001193376.jpg</code> → Logo REC vetorial.
-          </p>
-        </div>
-
-        <!-- Cabeçalho dos 9 produtos -->
-        <div class="flex items-center justify-between gap-2">
-          <span class="text-xs font-bold text-slate-300">Seus 9 produtos oficiais</span>
-          <button id="btn-pedir-restaurar" type="button"
-                  class="rounded-xl bg-white/5 border border-white/10 hover:border-red-400/50 text-slate-400 hover:text-red-200 text-[11px] font-bold px-3 py-1.5 active:scale-95 transition">
-            Restaurar padrão
-          </button>
-        </div>
-
-        <!-- Confirmação inline (sem confirm()) -->
-        <div id="caixa-confirmar-restaurar" class="hidden rounded-2xl bg-red-500/10 border border-red-500/40 p-3 text-xs text-red-200 space-y-2">
-          <p class="font-semibold">Descartar edições locais e restaurar os 9 links padrão?</p>
-          <div class="flex gap-2">
-            <button id="btn-confirmar-restaurar" type="button" class="flex-1 rounded-xl bg-red-500 text-white font-bold py-2 active:scale-95 transition">Sim, restaurar</button>
-            <button id="btn-cancelar-restaurar" type="button" class="flex-1 rounded-xl bg-white/10 text-slate-200 font-semibold py-2 active:scale-95 transition">Cancelar</button>
-          </div>
-        </div>
-
-        <!-- Formulário de edição individual -->
-        <form id="form-edicao" class="hidden rounded-2xl bg-[#0b0416] border border-[#ff6a2b]/60 p-4 space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 id="titulo-form-edicao" class="text-sm font-extrabold text-[#fbbf24]">Editando item</h3>
-            <button id="btn-fechar-form" type="button" class="text-xs font-semibold text-slate-400 hover:text-white">Cancelar</button>
-          </div>
-
-          <input type="hidden" id="campo-idx" value="-1">
-
-          <div>
-            <label for="campo-titulo" class="block text-[11px] font-bold text-slate-300 mb-1">Nome do produto</label>
-            <input id="campo-titulo" type="text" required
-                   class="w-full rounded-xl bg-[#140826] border border-white/15 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#ff00cc]">
-          </div>
-
-          <div class="grid grid-cols-2 gap-2.5">
-            <div>
-              <label for="campo-badge" class="block text-[11px] font-bold text-slate-300 mb-1">Selo de destaque</label>
-              <input id="campo-badge" type="text" placeholder="Ex: MAIS PROCURADO"
-                     class="w-full rounded-xl bg-[#140826] border border-white/15 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#ff00cc]">
-            </div>
-            <div>
-              <label for="campo-categoria" class="block text-[11px] font-bold text-slate-300 mb-1">Categoria</label>
-              <select id="campo-categoria"
-                      class="w-full rounded-xl bg-[#140826] border border-white/15 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#ff00cc]">
-                <option value="Consoles & Jogos">Consoles &amp; Jogos</option>
-                <option value="Setup & RGB">Setup &amp; RGB</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label for="campo-subtitulo" class="block text-[11px] font-bold text-slate-300 mb-1">Descrição curta</label>
-            <input id="campo-subtitulo" type="text" required
-                   class="w-full rounded-xl bg-[#140826] border border-white/15 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#ff00cc]">
-          </div>
-
-          <div>
-            <label for="campo-url" class="block text-[11px] font-bold text-[#fbbf24] mb-1">Link de afiliado (URL)</label>
-            <input id="campo-url" type="url" required placeholder="https://meli.la/... ou https://s.shopee.com.br/..."
-                   class="w-full rounded-xl bg-[#140826] border border-[#fbbf24]/50 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#fbbf24]">
-          </div>
-
-          <div>
-            <label for="campo-imagem" class="block text-[11px] font-bold text-[#ff99eb] mb-1">URL da foto real (opcional — vazio usa arte SVG)</label>
-            <input id="campo-imagem" type="url" placeholder="https://..."
-                   class="w-full rounded-xl bg-[#140826] border border-white/15 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#ff00cc]">
-          </div>
-
-          <button type="submit"
-                  class="w-full rounded-xl bg-gradient-to-r from-[#ff00cc] to-[#ff6a2b] text-white font-extrabold text-xs py-3 active:scale-95 transition">
-            Salvar prévia
-          </button>
-        </form>
-
-        <!-- Lista editável dos 9 produtos -->
-        <div id="lista-itens-editor" class="space-y-2"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast de notificação visual (sem alert()) -->
-  <div id="toast-container" role="status" aria-live="polite"
-       class="pointer-events-none fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] w-[92%] max-w-md opacity-0 translate-y-3 transition-all duration-300">
-    <div id="toast-texto" class="rounded-2xl bg-[#140826] border border-[#fbbf24]/70 px-4 py-3 text-xs font-bold text-white shadow-2xl text-center"></div>
-  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    // =========================================================================
-    // CONFIGURAÇÃO DA LOJA E CATÁLOGO OFICIAL (9 PRODUTOS NA ORDEM EXATA)
-    // =========================================================================
+    (function () {
+      "use strict";
 
-    // === INICIO_CONFIG ===
-    const CONFIG_LOJA = {
-      fotoPerfil: "perfil.jpg"
-    };
+      /* =====================================================================
+         SOMENTE VOCÊ EDITA AQUI (NO SEU GITHUB COM LOGIN E SENHA)
+         Visitantes NÃO conseguem alterar nada — loja 100% somente leitura.
+         ===================================================================== */
+      const DOMINIOS_PERMITIDOS = Object.freeze([
+        "meli.la",
+        "mercadolivre.com.br",
+        "produto.mercadolivre.com.br",
+        "s.shopee.com.br",
+        "shopee.com.br"
+      ]);
 
-    const PRODUTOS_OFICIAIS = [
-      {
-        id: "gta-vi-midia-fisica",
-        arte: "gtavi",
-        titulo: "GTA VI Mídia Física (PS5 / Xbox)",
-        loja: "Mercado Livre",
-        categoria: "Consoles & Jogos",
-        badge: "MAIS PROCURADO",
-        subtitulo: "Garanta a mídia física para explorar Leonida desde o primeiro dia.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://meli.la/2GmedmS",
-        imagem: ""
-      },
-      {
-        id: "controle-dualsense-ps5",
-        arte: "dualsense",
-        titulo: "Controle Sony DualSense PS5 Original",
-        loja: "Mercado Livre",
-        categoria: "Consoles & Jogos",
-        badge: "OFICIAL SONY",
-        subtitulo: "Gatilhos adaptáveis e resposta tátil oficial para máxima imersão.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://meli.la/2F4dsqF",
-        imagem: ""
-      },
-      {
-        id: "controle-xbox-wireless",
-        arte: "xbox",
-        titulo: "Controle Xbox Wireless Original (Series X|S / PC)",
-        loja: "Mercado Livre",
-        categoria: "Consoles & Jogos",
-        badge: "ORIGINAL XBOX",
-        subtitulo: "Pegada texturizada, baixa latência e compatível com Xbox e PC.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://meli.la/2cfQxcY",
-        imagem: ""
-      },
-      {
-        id: "gift-card-psn",
-        arte: "psn",
-        titulo: "Gift Card PlayStation Store (PSN)",
-        loja: "Mercado Livre",
-        categoria: "Consoles & Jogos",
-        badge: "ENVIO DIGITAL",
-        subtitulo: "Saldo na conta para jogos digitais, DLCs e assinatura PS Plus.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://meli.la/2KrLitS",
-        imagem: ""
-      },
-      {
-        id: "headset-hyperx-stinger-2",
-        arte: "hyperx",
-        titulo: "Headset Gamer HyperX Cloud Stinger 2",
-        loja: "Mercado Livre",
-        categoria: "Setup & RGB",
-        badge: "CUSTO-BENEFÍCIO",
-        subtitulo: "Áudio imersivo, conforto leve e microfone com mute giratório.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://meli.la/27zz1Qp",
-        imagem: ""
-      },
-      {
-        id: "microfone-usb-fifine",
-        arte: "fifine",
-        titulo: "Microfone Gamer USB Fifine (Estilo Streamer)",
-        loja: "Shopee",
-        categoria: "Setup & RGB",
-        badge: "ESTILO STREAMER",
-        subtitulo: "Captação limpa estilo live profissional com RGB neon e mute touch.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://s.shopee.com.br/2VtS46nv3a",
-        imagem: ""
-      },
-      {
-        id: "base-carregadora-ps5",
-        arte: "dockps5",
-        titulo: "Base Carregadora Dupla para Controle PS5",
-        loja: "Shopee",
-        categoria: "Consoles & Jogos",
-        badge: "ESSENCIAL PS5",
-        subtitulo: "Carrega 2 controles DualSense ao mesmo tempo com LED indicador.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://s.shopee.com.br/4B1g3KDY63",
-        imagem: ""
-      },
-      {
-        id: "mousepad-gamer-rgb",
-        arte: "mousepad",
-        titulo: "Mousepad Gamer Extra Grande RGB",
-        loja: "Shopee",
-        categoria: "Setup & RGB",
-        badge: "SETUP GAMER",
-        subtitulo: "Cobre teclado e mouse com borda RGB vibrante e base antiderrapante.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://s.shopee.com.br/5LDdRWL5wi",
-        imagem: ""
-      },
-      {
-        id: "fita-led-rgb-setup",
-        arte: "fitaled",
-        titulo: "Fita LED RGB para Setup / TV (com App)",
-        loja: "Shopee",
-        categoria: "Setup & RGB",
-        badge: "CLIMA VICE CITY",
-        subtitulo: "Controle cores e efeitos pelo app para transformar o clima do setup.",
-        status: "Oferta ativa hoje • Ver preço atualizado",
-        url: "https://s.shopee.com.br/7AfHcwzIg9",
-        imagem: ""
-      }
-    ];
-    // === FIM_CONFIG ===
+      const PRODUTOS = Object.freeze([
+        Object.freeze({
+          id: 1,
+          nome: "GTA VI — Mídia Física (PS5 / Xbox)",
+          desc: "Garanta sua cópia oficial em mídia física para jogar em Leonida com entrega segura.",
+          loja: "mercadolivre",
+          categoria: "consoles",
+          tag: "MAIS PROCURADO",
+          arte: "gtavi",
+          foto: "",
+          url: "[https://meli.la/2GmedmS](https://meli.la/2GmedmS)"
+        }),
+        Object.freeze({
+          id: 2,
+          nome: "Controle Sony DualSense PS5 Original",
+          desc: "Resposta tátil imersiva e gatilhos adaptáveis originais Sony para máxima precisão.",
+          loja: "mercadolivre",
+          categoria: "consoles",
+          tag: "OFICIAL SONY",
+          arte: "dualsense",
+          foto: "",
+          url: "[https://meli.la/2F4dsqF](https://meli.la/2F4dsqF)"
+        }),
+        Object.freeze({
+          id: 3,
+          nome: "Controle Xbox Wireless Original",
+          desc: "Compatível com Xbox Series X|S, PC e celular via Bluetooth com pegada texturizada.",
+          loja: "mercadolivre",
+          categoria: "consoles",
+          tag: "ORIGINAL XBOX",
+          arte: "xbox",
+          foto: "",
+          url: "[https://meli.la/2cfQxcY](https://meli.la/2cfQxcY)"
+        }),
+        Object.freeze({
+          id: 4,
+          nome: "Gift Card PlayStation Store (PSN)",
+          desc: "Crédito digital oficial para comprar jogos, DLCs e assinatura PS Plus sem cartão.",
+          loja: "mercadolivre",
+          categoria: "consoles",
+          tag: "ENVIO RÁPIDO",
+          arte: "psn",
+          foto: "",
+          url: "[https://meli.la/2KrLitS](https://meli.la/2KrLitS)"
+        }),
+        Object.freeze({
+          id: 5,
+          nome: "Headset Gamer HyperX Cloud Stinger 2",
+          desc: "Áudio nítido para ouvir cada passo, microfone com cancelamento e espuma confortável.",
+          loja: "mercadolivre",
+          categoria: "setup",
+          tag: "CUSTO-BENEFÍCIO",
+          arte: "headset",
+          foto: "",
+          url: "[https://meli.la/27zz1Qp](https://meli.la/27zz1Qp)"
+        }),
+        Object.freeze({
+          id: 6,
+          nome: "Microfone Gamer USB Fifine (Estilo Streamer)",
+          desc: "Qualidade de áudio limpa estilo live da Twitch e Kick, plug & play direto no USB.",
+          loja: "shopee",
+          categoria: "setup",
+          tag: "ESTILO STREAMER",
+          arte: "mic",
+          foto: "",
+          url: "[https://s.shopee.com.br/2VtS46nv3a](https://s.shopee.com.br/2VtS46nv3a)"
+        }),
+        Object.freeze({
+          id: 7,
+          nome: "Base Carregadora Dupla para Controle PS5",
+          desc: "Carregue dois DualSense ao mesmo tempo com encaixe rápido e LED indicador.",
+          loja: "shopee",
+          categoria: "consoles",
+          tag: "ACHADINHO",
+          arte: "dock",
+          foto: "",
+          url: "[https://s.shopee.com.br/4B1g3KDY63](https://s.shopee.com.br/4B1g3KDY63)"
+        }),
+        Object.freeze({
+          id: 8,
+          nome: "Mousepad Gamer Extra Grande RGB",
+          desc: "Superfície speed gigante para teclado e mouse com borda iluminada em LED RGB.",
+          loja: "shopee",
+          categoria: "setup",
+          tag: "UPGRADE SETUP",
+          arte: "mousepad",
+          foto: "",
+          url: "[https://s.shopee.com.br/5LDdRWL5wi](https://s.shopee.com.br/5LDdRWL5wi)"
+        }),
+        Object.freeze({
+          id: 9,
+          nome: "Fita LED RGB para Setup / TV (com App)",
+          desc: "Deixe seu quarto ou TV com clima neon de Vice City controlando cores pelo celular.",
+          loja: "shopee",
+          categoria: "setup",
+          tag: "CLIMA VICE CITY",
+          arte: "led",
+          foto: "",
+          url: "[https://s.shopee.com.br/7AfHcwzIg9](https://s.shopee.com.br/7AfHcwzIg9)"
+        })
+      ]);
 
-    // =========================================================================
-    // FALLBACK DO AVATAR EM CASCATA: perfil.jpg -> 1001193376.jpg -> SVG INLINE
-    // =========================================================================
-    function tratarErroAvatar(imgEl) {
-      if (!imgEl) return;
-      const etapa = Number(imgEl.dataset.fallbackStep || "0");
-      const srcAtual = String(imgEl.getAttribute("src") || "");
-
-      // Etapa 0 -> tenta 1001193376.jpg
-      if (etapa === 0 && !srcAtual.endsWith("1001193376.jpg")) {
-        imgEl.dataset.fallbackStep = "1";
-        imgEl.src = "1001193376.jpg";
-        return;
-      }
-
-      // Etapa final -> oculta <img> e revela a réplica SVG vetorial da logo REC
-      imgEl.dataset.fallbackStep = "2";
-      imgEl.onerror = null;
-      imgEl.classList.add("hidden");
-      const svgFallback = document.getElementById("avatar-svg-fallback");
-      if (svgFallback) svgFallback.classList.remove("hidden");
-    }
-
-    function aplicarFotoPerfil(caminho) {
-      const img = document.getElementById("avatar-img");
-      const svgFallback = document.getElementById("avatar-svg-fallback");
-      const srcLimpo = String(caminho || "perfil.jpg").trim() || "perfil.jpg";
-
-      if (svgFallback) svgFallback.classList.add("hidden");
-      if (img) {
-        img.classList.remove("hidden");
-        img.dataset.fallbackStep = "0";
-        img.onerror = function () { tratarErroAvatar(this); };
-        img.src = srcLimpo;
-      }
-
-      const linkIcon = document.querySelector('link[rel="icon"]');
-      if (linkIcon) linkIcon.setAttribute("href", srcLimpo);
-      const ogImg = document.querySelector('meta[property="og:image"]');
-      if (ogImg) ogImg.setAttribute("content", srcLimpo);
-    }
-
-    // =========================================================================
-    // ILUSTRAÇÕES SVG ESTILO ESTÚDIO VICE CITY PARA OS 9 PRODUTOS
-    // =========================================================================
-    const ARTES_SVG = {
-      gtavi: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GTA VI Mídia Física">
-          <defs>
-            <linearGradient id="gta-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#19072d"/>
-              <stop offset="55%" stop-color="#2c0b46"/>
-              <stop offset="100%" stop-color="#0b0416"/>
-            </linearGradient>
-            <linearGradient id="gta-sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#6b118f"/>
-              <stop offset="46%" stop-color="#ff00cc"/>
-              <stop offset="82%" stop-color="#ff6a2b"/>
-              <stop offset="100%" stop-color="#fbbf24"/>
-            </linearGradient>
-            <linearGradient id="gta-gloss" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28"/>
-              <stop offset="45%" stop-color="#ffffff" stop-opacity="0.04"/>
-              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#gta-bg)"/>
-          <circle cx="160" cy="102" r="80" fill="#ff00cc" opacity="0.22"/>
-          <circle cx="222" cy="64" r="46" fill="#ff6a2b" opacity="0.20"/>
-          <ellipse cx="160" cy="182" rx="64" ry="8" fill="#000000" opacity="0.65"/>
-          <rect x="108" y="18" width="104" height="158" rx="9" fill="#0b2e78" stroke="#fbbf24" stroke-opacity="0.45" stroke-width="1.2"/>
-          <path d="M109 27 C109 22 113 19 118 19 L202 19 C207 19 211 22 211 27 L211 36 L109 36 Z" fill="#f8fafc"/>
-          <rect x="122" y="25" width="26" height="5" rx="2.5" fill="#0f172a"/>
-          <rect x="154" y="25" width="44" height="5" rx="2.5" fill="#0284c7" opacity="0.85"/>
-          <rect x="113" y="39" width="94" height="132" rx="4" fill="url(#gta-sky)"/>
-          <circle cx="160" cy="108" r="27" fill="#fef08a" opacity="0.95"/>
-          <rect x="130" y="114" width="60" height="3" fill="#ff00cc" opacity="0.38"/>
-          <rect x="132" y="121" width="56" height="3.5" fill="#ff00cc" opacity="0.52"/>
-          <path d="M113 136 L207 136 L207 171 L113 171 Z" fill="#140826"/>
-          <path d="M126 155 Q122 126 118 106" stroke="#090212" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <path d="M118 106 Q108 102 103 110 M118 106 Q113 96 123 95 M118 106 Q128 99 135 107 M118 106 Q126 108 130 118" stroke="#090212" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <path d="M193 158 Q195 130 201 112" stroke="#090212" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <path d="M201 112 Q188 106 182 114 M201 112 Q195 100 206 101 M201 112 Q209 109 213 117" stroke="#090212" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-          <text x="160" y="88" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="25" fill="#0b0416" stroke="#0b0416" stroke-width="5" letter-spacing="1">GTA VI</text>
-          <text x="160" y="88" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="25" fill="#ffffff" letter-spacing="1">GTA VI</text>
-          <text x="160" y="156" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="8.5" fill="#fbbf24" letter-spacing="2.2">LEONIDA EDITION</text>
-          <path d="M108 18 L175 18 L108 130 Z" fill="url(#gta-gloss)"/>
-        </svg>
-      `,
-      dualsense: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Controle Sony DualSense PS5">
-          <defs>
-            <linearGradient id="ds-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#140626"/>
-              <stop offset="100%" stop-color="#0b0d1f"/>
-            </linearGradient>
-            <linearGradient id="ds-shell" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#ffffff"/>
-              <stop offset="68%" stop-color="#e2e8f0"/>
-              <stop offset="100%" stop-color="#94a3b8"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#ds-bg)"/>
-          <circle cx="160" cy="96" r="76" fill="#ff00cc" opacity="0.16"/>
-          <circle cx="160" cy="96" r="52" fill="#38bdf8" opacity="0.18"/>
-          <ellipse cx="160" cy="172" rx="88" ry="10" fill="#000000" opacity="0.62"/>
-          <path d="M98 56 C116 46 204 46 222 56 C244 68 258 118 252 146 C247 166 232 169 221 157 L199 128 C191 121 129 121 121 128 L99 157 C88 169 73 166 68 146 C62 118 76 68 98 56 Z" fill="url(#ds-shell)" stroke="#ffffff" stroke-width="1.2"/>
-          <path d="M114 96 L206 96 L213 130 C205 138 197 132 192 126 L128 126 C123 132 115 138 107 130 Z" fill="#121622"/>
-          <path d="M126 54 L194 54 L189 92 L131 92 Z" fill="#f8fafc" stroke="#38bdf8" stroke-width="2.4"/>
-          <line x1="127" y1="56" x2="132" y2="90" stroke="#38bdf8" stroke-width="3.2" stroke-linecap="round"/>
-          <line x1="193" y1="56" x2="188" y2="90" stroke="#38bdf8" stroke-width="3.2" stroke-linecap="round"/>
-          <g fill="#cbd5e1" stroke="#64748b" stroke-width="0.9">
-            <rect x="97" y="70" width="8" height="10" rx="2"/>
-            <rect x="97" y="88" width="8" height="10" rx="2"/>
-            <rect x="87" y="80" width="10" height="8" rx="2"/>
-            <rect x="105" y="80" width="10" height="8" rx="2"/>
-          </g>
-          <circle cx="218" cy="73" r="4.5" fill="#e2e8f0" stroke="#38bdf8" stroke-width="1.2"/>
-          <circle cx="218" cy="95" r="4.5" fill="#e2e8f0" stroke="#3b82f6" stroke-width="1.2"/>
-          <circle cx="207" cy="84" r="4.5" fill="#e2e8f0" stroke="#ff00cc" stroke-width="1.2"/>
-          <circle cx="229" cy="84" r="4.5" fill="#e2e8f0" stroke="#ff6a2b" stroke-width="1.2"/>
-          <circle cx="133" cy="111" r="13" fill="#0f172a" stroke="#475569" stroke-width="2"/>
-          <circle cx="133" cy="111" r="8" fill="#1e293b"/>
-          <circle cx="187" cy="111" r="13" fill="#0f172a" stroke="#475569" stroke-width="2"/>
-          <circle cx="187" cy="111" r="8" fill="#1e293b"/>
-          <circle cx="160" cy="109" r="5" fill="#38bdf8" opacity="0.9"/>
-        </svg>
-      `,
-      xbox: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Controle Xbox Wireless Original">
-          <defs>
-            <linearGradient id="xb-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#091a12"/>
-              <stop offset="100%" stop-color="#120621"/>
-            </linearGradient>
-            <linearGradient id="xb-body" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#334155"/>
-              <stop offset="38%" stop-color="#1e293b"/>
-              <stop offset="100%" stop-color="#0b0416"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#xb-bg)"/>
-          <circle cx="160" cy="92" r="76" fill="#22c55e" opacity="0.18"/>
-          <ellipse cx="160" cy="172" rx="88" ry="10" fill="#000000" opacity="0.65"/>
-          <path d="M102 54 C124 44 196 44 218 54 C242 64 257 110 250 144 C245 166 227 170 214 155 L193 130 C183 123 137 123 127 130 L106 155 C93 170 75 166 70 144 C63 110 78 64 102 54 Z" fill="url(#xb-body)" stroke="#475569" stroke-width="1.3"/>
-          <circle cx="160" cy="69" r="11" fill="#052e16" stroke="#4ade80" stroke-width="2"/>
-          <path d="M154 64 Q160 69 166 75 M166 64 Q160 69 154 75" stroke="#ecfdf5" stroke-width="2.4" stroke-linecap="round"/>
-          <circle cx="110" cy="84" r="13.5" fill="#090b10" stroke="#475569" stroke-width="2"/>
-          <circle cx="110" cy="84" r="8" fill="#1e293b"/>
-          <circle cx="133" cy="112" r="12" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
-          <path d="M133 103 L133 121 M124 112 L142 112" stroke="#64748b" stroke-width="3.2" stroke-linecap="round"/>
-          <circle cx="187" cy="111" r="13.5" fill="#090b10" stroke="#475569" stroke-width="2"/>
-          <circle cx="187" cy="111" r="8" fill="#1e293b"/>
-          <circle cx="211" cy="72" r="4.8" fill="#111827" stroke="#fbbf24" stroke-width="1.8"/>
-          <circle cx="211" cy="94" r="4.8" fill="#111827" stroke="#22c55e" stroke-width="1.8"/>
-          <circle cx="199" cy="83" r="4.8" fill="#111827" stroke="#38bdf8" stroke-width="1.8"/>
-          <circle cx="223" cy="83" r="4.8" fill="#111827" stroke="#ef4444" stroke-width="1.8"/>
-          <rect x="155" y="90" width="10" height="6" rx="2" fill="#475569"/>
-        </svg>
-      `,
-      psn: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gift Card PlayStation Store PSN">
-          <defs>
-            <linearGradient id="psn-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#110528"/>
-              <stop offset="100%" stop-color="#091a42"/>
-            </linearGradient>
-            <linearGradient id="psn-card" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#0052cc"/>
-              <stop offset="52%" stop-color="#0070f3"/>
-              <stop offset="100%" stop-color="#00c4ff"/>
-            </linearGradient>
-            <linearGradient id="psn-holo" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.34"/>
-              <stop offset="50%" stop-color="#ff00cc" stop-opacity="0.24"/>
-              <stop offset="100%" stop-color="#fbbf24" stop-opacity="0.22"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#psn-bg)"/>
-          <circle cx="160" cy="100" r="82" fill="#0070f3" opacity="0.28"/>
-          <ellipse cx="160" cy="174" rx="96" ry="9" fill="#000000" opacity="0.6"/>
-          <rect x="64" y="42" width="196" height="118" rx="14" transform="rotate(-6 162 101)" fill="#13255c" stroke="#ff00cc" stroke-opacity="0.35" stroke-width="1"/>
-          <rect x="62" y="38" width="196" height="122" rx="14" fill="url(#psn-card)" stroke="#bae6fd" stroke-opacity="0.65" stroke-width="1.4"/>
-          <path d="M126 38 L188 38 L138 160 L76 160 Z" fill="url(#psn-holo)"/>
-          <rect x="78" y="54" width="68" height="20" rx="6" fill="#0b0416" opacity="0.58"/>
-          <text x="112" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="10" fill="#ffffff" letter-spacing="1.2">PS STORE</text>
-          <g stroke="#ffffff" stroke-width="2" fill="none" opacity="0.88">
-            <polygon points="196,60 190,71 202,71"/>
-            <circle cx="212" cy="65.5" r="5"/>
-            <line x1="222" y1="61" x2="231" y2="70"/>
-            <line x1="231" y1="61" x2="222" y2="70"/>
-            <rect x="236" y="61" width="9" height="9" rx="1.5"/>
-          </g>
-          <text x="78" y="114" font-family="Inter, sans-serif" font-weight="900" font-size="22" fill="#ffffff" letter-spacing="0.4">GIFT CARD</text>
-          <text x="78" y="133" font-family="Inter, sans-serif" font-weight="700" font-size="10.2" fill="#e0f2fe" letter-spacing="1.2">CÓDIGO DIGITAL • BRASIL</text>
-          <rect x="210" y="126" width="32" height="18" rx="4" fill="#fbbf24"/>
-          <text x="226" y="138.5" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="9" fill="#0b0416">BR</text>
-        </svg>
-      `,
-      hyperx: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Headset Gamer HyperX Cloud Stinger 2">
-          <defs>
-            <linearGradient id="hx-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#210617"/>
-              <stop offset="100%" stop-color="#0b0416"/>
-            </linearGradient>
-            <linearGradient id="hx-arc" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#334155"/>
-              <stop offset="50%" stop-color="#1e293b"/>
-              <stop offset="100%" stop-color="#334155"/>
-            </linearGradient>
-            <linearGradient id="hx-accent" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#ff00cc"/>
-              <stop offset="50%" stop-color="#ff6a2b"/>
-              <stop offset="100%" stop-color="#fbbf24"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#hx-bg)"/>
-          <circle cx="160" cy="96" r="78" fill="#ff6a2b" opacity="0.18"/>
-          <ellipse cx="160" cy="176" rx="70" ry="8" fill="#000000" opacity="0.62"/>
-          <path d="M96 112 C96 48 118 28 160 28 C202 28 224 48 224 112" fill="none" stroke="url(#hx-arc)" stroke-width="16" stroke-linecap="round"/>
-          <path d="M114 54 C126 36 194 36 206 54" fill="none" stroke="url(#hx-accent)" stroke-width="3" stroke-linecap="round"/>
-          <rect x="78" y="96" width="32" height="60" rx="14" fill="#111827" stroke="#475569" stroke-width="1.5"/>
-          <rect x="104" y="102" width="12" height="48" rx="6" fill="#0b0416"/>
-          <path d="M88 112 L98 126 L88 140" fill="none" stroke="url(#hx-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="210" y="96" width="32" height="60" rx="14" fill="#111827" stroke="#475569" stroke-width="1.5"/>
-          <rect x="204" y="102" width="12" height="48" rx="6" fill="#0b0416"/>
-          <path d="M232 112 L222 126 L232 140" fill="none" stroke="url(#hx-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M92 146 Q104 170 150 166" fill="none" stroke="#334155" stroke-width="4.5" stroke-linecap="round"/>
-          <rect x="147" y="160" width="17" height="11" rx="5.5" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
-        </svg>
-      `,
-      fifine: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Microfone Gamer USB Fifine">
-          <defs>
-            <linearGradient id="fi-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#1c052b"/>
-              <stop offset="100%" stop-color="#0b0416"/>
-            </linearGradient>
-            <linearGradient id="fi-rgb" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#ff00cc"/>
-              <stop offset="52%" stop-color="#ff6a2b"/>
-              <stop offset="100%" stop-color="#fbbf24"/>
-            </linearGradient>
-            <linearGradient id="fi-body" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#0f172a"/>
-              <stop offset="50%" stop-color="#1e293b"/>
-              <stop offset="100%" stop-color="#0b0416"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#fi-bg)"/>
-          <circle cx="160" cy="86" r="68" fill="#ff00cc" opacity="0.22"/>
-          <circle cx="160" cy="86" r="46" fill="#ff6a2b" opacity="0.18"/>
-          <ellipse cx="160" cy="174" rx="50" ry="11" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
-          <ellipse cx="160" cy="171" rx="34" ry="6" fill="#1e293b"/>
-          <rect x="155" y="140" width="10" height="32" rx="3" fill="#334155"/>
-          <path d="M124 98 C124 146 196 146 196 98" fill="none" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
-          <rect x="134" y="28" width="52" height="104" rx="26" fill="url(#fi-body)" stroke="url(#fi-rgb)" stroke-width="3"/>
-          <rect x="142" y="42" width="36" height="58" rx="16" fill="url(#fi-rgb)" opacity="0.30"/>
-          <g stroke="url(#fi-rgb)" stroke-width="2" stroke-linecap="round" opacity="0.92">
-            <line x1="144" y1="50" x2="176" y2="50"/>
-            <line x1="142" y1="60" x2="178" y2="60"/>
-            <line x1="142" y1="70" x2="178" y2="70"/>
-            <line x1="142" y1="80" x2="178" y2="80"/>
-            <line x1="144" y1="90" x2="176" y2="90"/>
-          </g>
-          <ellipse cx="160" cy="31" rx="14" ry="3.5" fill="#fbbf24"/>
-          <circle cx="160" cy="115" r="7" fill="#0b0416" stroke="#94a3b8" stroke-width="1.5"/>
-        </svg>
-      `,
-      dockps5: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Base Carregadora Dupla Controle PS5">
-          <defs>
-            <linearGradient id="dk-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#140626"/>
-              <stop offset="100%" stop-color="#0b1026"/>
-            </linearGradient>
-            <linearGradient id="dk-white" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#ffffff"/>
-              <stop offset="100%" stop-color="#cbd5e1"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#dk-bg)"/>
-          <circle cx="160" cy="116" r="82" fill="#38bdf8" opacity="0.18"/>
-          <ellipse cx="160" cy="174" rx="108" ry="11" fill="#000000" opacity="0.65"/>
-          <g transform="translate(-40,-8)">
-            <path d="M126 68 C136 62 184 62 194 68 C206 76 213 102 208 118 C204 129 194 129 188 121 L178 108 L142 108 L132 121 C126 129 116 129 112 118 C107 102 114 76 126 68 Z" fill="url(#dk-white)"/>
-            <rect x="142" y="68" width="36" height="20" rx="4" fill="#f8fafc" stroke="#38bdf8" stroke-width="2"/>
-            <circle cx="145" cy="98" r="6" fill="#0f172a"/>
-            <circle cx="175" cy="98" r="6" fill="#0f172a"/>
-          </g>
-          <g transform="translate(42,-8)">
-            <path d="M126 68 C136 62 184 62 194 68 C206 76 213 102 208 118 C204 129 194 129 188 121 L178 108 L142 108 L132 121 C126 129 116 129 112 118 C107 102 114 76 126 68 Z" fill="url(#dk-white)"/>
-            <rect x="142" y="68" width="36" height="20" rx="4" fill="#f8fafc" stroke="#38bdf8" stroke-width="2"/>
-            <circle cx="145" cy="98" r="6" fill="#0f172a"/>
-            <circle cx="175" cy="98" r="6" fill="#0f172a"/>
-          </g>
-          <path d="M62 124 L258 124 L246 164 L74 164 Z" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
-          <path d="M56 128 L264 128 L254 156 L66 156 Z" fill="url(#dk-white)"/>
-          <rect x="86" y="136" width="148" height="16" rx="8" fill="#0b0416"/>
-          <rect x="108" y="142" width="36" height="4" rx="2" fill="#38bdf8"/>
-          <rect x="176" y="142" width="36" height="4" rx="2" fill="#fbbf24"/>
-          <text x="160" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="8" fill="#ffffff">2X</text>
-        </svg>
-      `,
-      mousepad: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mousepad Gamer Extra Grande RGB">
-          <defs>
-            <linearGradient id="mp-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#0b0416"/>
-              <stop offset="100%" stop-color="#200832"/>
-            </linearGradient>
-            <linearGradient id="mp-rgb" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#ff00cc"/>
-              <stop offset="50%" stop-color="#ff6a2b"/>
-              <stop offset="100%" stop-color="#fbbf24"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#mp-bg)"/>
-          <ellipse cx="160" cy="116" rx="132" ry="52" fill="#ff00cc" opacity="0.18"/>
-          <polygon points="48,62 272,62 296,154 24,154" fill="#10061f" stroke="url(#mp-rgb)" stroke-width="5" stroke-linejoin="round"/>
-          <line x1="66" y1="84" x2="254" y2="84" stroke="#291447" stroke-width="1"/>
-          <line x1="56" y1="108" x2="264" y2="108" stroke="#291447" stroke-width="1"/>
-          <line x1="46" y1="132" x2="274" y2="132" stroke="#291447" stroke-width="1"/>
-          <rect x="64" y="84" width="124" height="48" rx="6" fill="#180d2c" stroke="#3b1d5e" stroke-width="1.5"/>
-          <g fill="#ff00cc" opacity="0.85">
-            <rect x="72" y="92" width="12" height="7" rx="1.5"/>
-            <rect x="87" y="92" width="12" height="7" rx="1.5"/>
-            <rect x="102" y="92" width="12" height="7" rx="1.5"/>
-            <rect x="117" y="92" width="12" height="7" rx="1.5"/>
-            <rect x="132" y="92" width="12" height="7" rx="1.5"/>
-            <rect x="147" y="92" width="12" height="7" rx="1.5"/>
-            <rect x="162" y="92" width="18" height="7" rx="1.5"/>
-          </g>
-          <g fill="#ff6a2b" opacity="0.88">
-            <rect x="72" y="103" width="16" height="7" rx="1.5"/>
-            <rect x="91" y="103" width="12" height="7" rx="1.5"/>
-            <rect x="106" y="103" width="12" height="7" rx="1.5"/>
-            <rect x="121" y="103" width="12" height="7" rx="1.5"/>
-            <rect x="136" y="103" width="12" height="7" rx="1.5"/>
-            <rect x="151" y="103" width="29" height="7" rx="1.5"/>
-          </g>
-          <rect x="96" y="116" width="60" height="8" rx="2" fill="#fbbf24" opacity="0.92"/>
-          <rect x="216" y="92" width="26" height="40" rx="13" fill="#180d2c" stroke="#fbbf24" stroke-width="1.8"/>
-          <rect x="227" y="99" width="4" height="9" rx="2" fill="#ff00cc"/>
-          <rect x="34" y="60" width="16" height="10" rx="3" fill="#1e293b" stroke="#fbbf24" stroke-width="1.2"/>
-        </svg>
-      `,
-      fitaled: `
-        <svg viewBox="0 0 320 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fita LED RGB para Setup e TV">
-          <defs>
-            <linearGradient id="ld-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#170428"/>
-              <stop offset="50%" stop-color="#0b0416"/>
-              <stop offset="100%" stop-color="#220a18"/>
-            </linearGradient>
-            <linearGradient id="ld-wave" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#ff00cc"/>
-              <stop offset="38%" stop-color="#ff6a2b"/>
-              <stop offset="72%" stop-color="#fbbf24"/>
-              <stop offset="100%" stop-color="#a855f7"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="200" fill="url(#ld-bg)"/>
-          <rect x="54" y="28" width="212" height="114" rx="16" fill="url(#ld-wave)" opacity="0.34"/>
-          <rect x="64" y="36" width="192" height="100" rx="10" fill="#0b0416" stroke="url(#ld-wave)" stroke-width="3.2"/>
-          <rect x="72" y="44" width="176" height="84" rx="5" fill="#140826"/>
-          <path d="M72 44 L148 44 L104 128 L72 128 Z" fill="#ffffff" opacity="0.04"/>
-          <text x="160" y="90" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="14" fill="url(#ld-wave)" letter-spacing="2.2">LEONIDA RGB</text>
-          <rect x="148" y="136" width="24" height="16" fill="#2a1647"/>
-          <rect x="120" y="150" width="80" height="7" rx="3.5" fill="#3b1f63"/>
-          <path d="M24 166 C80 144 136 186 196 164 C236 150 268 156 296 172" fill="none" stroke="url(#ld-wave)" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
-          <path d="M24 166 C80 144 136 186 196 164 C236 150 268 156 296 172" fill="none" stroke="url(#ld-wave)" stroke-width="3.5" stroke-linecap="round"/>
-          <circle cx="44" cy="160" r="3" fill="#ff00cc"/>
-          <circle cx="88" cy="157" r="3" fill="#ff6a2b"/>
-          <circle cx="136" cy="169" r="3" fill="#fbbf24"/>
-          <circle cx="186" cy="167" r="3" fill="#ff00cc"/>
-          <circle cx="236" cy="156" r="3" fill="#ff6a2b"/>
-          <circle cx="278" cy="164" r="3" fill="#a855f7"/>
-        </svg>
-      `
-    };
-
-    // =========================================================================
-    // ESTADO, ARMAZENAMENTO LOCAL E EXPORTAÇÃO LIMPA (HTML PURO)
-    // =========================================================================
-    const STORAGE_KEY = "leonidarecbr_loja_v5";
-    let TEMPLATE_HTML_LIMPO = "";
-    let estado = carregarEstado();
-    let filtroAtivo = "todos";
-    let termoBusca = "";
-    let toastTimeout = null;
-
-    function capturarTemplateLimpo() {
-      try {
-        const cloneDoc = document.documentElement.cloneNode(true);
-        // Remove <style> injetados dinamicamente pelo Tailwind CDN
-        cloneDoc.querySelectorAll("style").forEach((el) => el.remove());
-
-        const gradeClone = cloneDoc.querySelector("#grade-produtos");
-        if (gradeClone) gradeClone.innerHTML = "";
-        const listaEdClone = cloneDoc.querySelector("#lista-itens-editor");
-        if (listaEdClone) listaEdClone.innerHTML = "";
-        const avisoClone = cloneDoc.querySelector("#aviso-rascunho");
-        if (avisoClone) avisoClone.classList.add("hidden");
-        const modalClone = cloneDoc.querySelector("#modal-editor");
-        if (modalClone) modalClone.classList.add("hidden");
-
-        const avatarClone = cloneDoc.querySelector("#avatar-img");
-        if (avatarClone) {
-          avatarClone.classList.remove("hidden");
-          avatarClone.removeAttribute("data-fallback-step");
-          avatarClone.setAttribute("src", CONFIG_LOJA.fotoPerfil || "perfil.jpg");
-          avatarClone.setAttribute("onerror", "tratarErroAvatar(this)");
-        }
-        const svgFallbackClone = cloneDoc.querySelector("#avatar-svg-fallback");
-        if (svgFallbackClone) svgFallbackClone.classList.add("hidden");
-
-        TEMPLATE_HTML_LIMPO = "<!DOCTYPE html>\n" + cloneDoc.outerHTML;
-      } catch (err) {
-        console.error("Falha ao capturar template HTML limpo:", err);
-      }
-    }
-
-    function carregarEstado() {
-      try {
-        const salvo = localStorage.getItem(STORAGE_KEY);
-        if (salvo) {
-          const parsed = JSON.parse(salvo);
-          if (parsed && Array.isArray(parsed.produtos) && parsed.produtos.length > 0) {
-            return {
-              fotoPerfil: parsed.fotoPerfil || CONFIG_LOJA.fotoPerfil || "perfil.jpg",
-              produtos: parsed.produtos
-            };
-          }
-        }
-      } catch (err) {
-        console.warn("Falha ao ler rascunho local:", err);
-      }
-      return {
-        fotoPerfil: CONFIG_LOJA.fotoPerfil || "perfil.jpg",
-        produtos: PRODUTOS_OFICIAIS.map((item) => ({ ...item }))
-      };
-    }
-
-    function salvarRascunho() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
-      } catch (err) {
-        console.warn("Falha ao salvar rascunho:", err);
-      }
-      atualizarBannerRascunho();
-    }
-
-    function atualizarBannerRascunho() {
-      const banner = document.getElementById("aviso-rascunho");
-      if (!banner) return;
-      try {
-        banner.classList.toggle("hidden", !localStorage.getItem(STORAGE_KEY));
-      } catch (err) {
-        banner.classList.add("hidden");
-      }
-    }
-
-    function escaparHtml(str) {
-      return String(str || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
-    }
-
-    function sanitizarUrl(url) {
-      const limpa = String(url || "").trim();
-      return /^https?:\/\//i.test(limpa) ? limpa : "#";
-    }
-
-    function mostrarToast(msg, tipo = "ok") {
-      const wrap = document.getElementById("toast-container");
-      const box = document.getElementById("toast-texto");
-      if (!wrap || !box) return;
-
-      box.textContent = msg;
-      box.className = "rounded-2xl bg-[#140826] px-4 py-3 text-xs font-bold shadow-2xl text-center border " +
-        (tipo === "erro"
-          ? "border-red-500/70 text-red-200"
-          : "border-[#fbbf24]/75 text-[#fbbf24]");
-
-      wrap.classList.remove("opacity-0", "translate-y-3");
-      wrap.classList.add("opacity-100", "translate-y-0");
-
-      if (toastTimeout) clearTimeout(toastTimeout);
-      toastTimeout = setTimeout(() => {
-        wrap.classList.add("opacity-0", "translate-y-3");
-        wrap.classList.remove("opacity-100", "translate-y-0");
-      }, 3200);
-    }
-
-    /**
-     * Copia texto com segurança via execCommand('copy') para compatibilidade em iframes e Android.
-     */
-    function copiarTexto(texto) {
-      const area = document.createElement("textarea");
-      area.value = texto;
-      area.setAttribute("readonly", "");
-      area.className = "fixed -top-[9999px] left-0 opacity-0";
-      document.body.appendChild(area);
-      area.focus();
-      area.select();
-      area.setSelectionRange(0, texto.length);
-
-      let ok = false;
-      try {
-        ok = document.execCommand("copy");
-      } catch (err) {
-        ok = false;
-      }
-      document.body.removeChild(area);
-      return ok;
-    }
-
-    function atualizarChips() {
-      const total = estado.produtos.length;
-      const rotulos = {
-        todos: `Todos (${total})`,
-        ml: "Mercado Livre",
-        shopee: "Shopee",
-        "cat-consoles": "Consoles & Jogos",
-        "cat-setup": "Setup & RGB"
-      };
-
-      document.querySelectorAll(".chip-filtro").forEach((btn) => {
-        const chave = btn.getAttribute("data-filtro");
-        if (rotulos[chave]) btn.textContent = rotulos[chave];
-
-        const ativo = chave === filtroAtivo;
-        let cls = "chip-filtro shrink-0 rounded-full px-4 py-2.5 text-xs border transition active:scale-95 ";
-
-        if (ativo && chave === "ml") {
-          cls += "font-extrabold bg-[#ffe600] text-[#0b0416] border-[#ffe600] shadow-md shadow-[#ffe600]/25";
-        } else if (ativo && chave === "shopee") {
-          cls += "font-extrabold bg-[#ee4d2d] text-white border-[#ee4d2d] shadow-md shadow-[#ee4d2d]/25";
-        } else if (ativo) {
-          cls += "font-extrabold bg-gradient-to-r from-[#ff00cc] to-[#ff6a2b] text-white border-transparent shadow-md shadow-[#ff00cc]/25";
-        } else {
-          cls += "font-semibold bg-[#140826] text-slate-300 border-white/10 hover:border-[#ff00cc]/50 hover:text-white";
-        }
-        btn.className = cls;
-      });
-    }
-
-    function renderizarProdutos() {
-      const grade = document.getElementById("grade-produtos");
-      const vazio = document.getElementById("estado-vazio");
-      const contador = document.getElementById("contador-produtos");
-      if (!grade || !vazio || !contador) return;
-
-      const busca = termoBusca.trim().toLowerCase();
-
-      const visiveis = estado.produtos.filter((p) => {
-        const bateFiltro =
-          filtroAtivo === "todos" ||
-          (filtroAtivo === "ml" && p.loja === "Mercado Livre") ||
-          (filtroAtivo === "shopee" && p.loja === "Shopee") ||
-          (filtroAtivo === "cat-consoles" && p.categoria === "Consoles & Jogos") ||
-          (filtroAtivo === "cat-setup" && p.categoria === "Setup & RGB");
-
-        const textoBusca = `${p.titulo} ${p.subtitulo} ${p.loja} ${p.categoria} ${p.badge}`.toLowerCase();
-        const bateBusca = !busca || textoBusca.includes(busca);
-        return bateFiltro && bateBusca;
-      });
-
-      contador.textContent = visiveis.length === 1
-        ? "1 oferta ativa hoje"
-        : `${visiveis.length} ofertas ativas hoje`;
-
-      if (visiveis.length === 0) {
-        grade.innerHTML = "";
-        vazio.classList.remove("hidden");
-        return;
-      }
-
-      vazio.classList.add("hidden");
-
-      grade.innerHTML = visiveis.map((p) => {
-        const ehML = p.loja === "Mercado Livre";
-        const pillLojaCls = ehML
-          ? "bg-[#ffe600] text-[#0b0416] shadow-md shadow-black/40"
-          : "bg-[#ee4d2d] text-white shadow-md shadow-black/40";
-        const ctaCls = ehML
-          ? "bg-[#ffe600] hover:bg-[#f5dc00] text-[#0b0416] shadow-lg shadow-[#ffe600]/25"
-          : "bg-[#ee4d2d] hover:bg-[#d93f20] text-white shadow-lg shadow-[#ee4d2d]/30";
-        const ctaLabel = ehML
-          ? "Ver oferta no Mercado Livre ↗"
-          : "Ver oferta na Shopee ↗";
-
-        const svgArte = ARTES_SVG[p.arte] || ARTES_SVG.gtavi;
-        const imgCustom = p.imagem && /^https?:\/\//i.test(p.imagem.trim()) ? p.imagem.trim() : "";
-        const urlSegura = sanitizarUrl(p.url);
-        const statusOferta = p.status || "Oferta ativa hoje • Ver preço atualizado";
-
-        const visualTopo = imgCustom
-          ? `<img src="${escaparHtml(imgCustom)}" alt="${escaparHtml(p.titulo)}" loading="lazy"
-                  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-                  onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');">
-             <div class="hidden w-full h-full">${svgArte}</div>`
-          : `<div class="w-full h-full transition duration-500 group-hover:scale-[1.03]">${svgArte}</div>`;
-
-        return `
-          <article class="group flex flex-col rounded-3xl bg-[#140826]/95 border border-white/10 hover:border-[#ff00cc]/55 overflow-hidden shadow-xl shadow-black/50 transition duration-300">
-            <!-- Vitrine visual 16:10 -->
-            <div class="relative aspect-[16/10] w-full bg-gradient-to-br from-[#120422] to-[#1e0b36] overflow-hidden border-b border-white/10">
-              ${visualTopo}
-
-              <!-- Selo da loja -->
-              <span class="absolute top-3 left-3 inline-flex items-center rounded-xl px-2.5 py-1 text-[11px] font-black tracking-tight ${pillLojaCls}">
-                ${escaparHtml(p.loja)}
-              </span>
-
-              <!-- Selo de destaque -->
-              ${p.badge ? `
-                <span class="absolute top-3 right-3 inline-flex items-center rounded-xl bg-[#0b0416]/85 border border-[#fbbf24]/45 backdrop-blur-md px-2.5 py-1 text-[10px] font-black tracking-wide text-[#fbbf24]">
-                  ${escaparHtml(p.badge)}
-                </span>
-              ` : ""}
-            </div>
-
-            <!-- Detalhes do produto -->
-            <div class="flex flex-1 flex-col p-4 sm:p-5">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-[#ff99eb]">
-                ${escaparHtml(p.categoria)}
-              </span>
-
-              <h3 class="mt-1 text-base font-extrabold text-white leading-snug">
-                ${escaparHtml(p.titulo)}
-              </h3>
-
-              <p class="mt-1.5 text-xs sm:text-sm text-slate-300/85 leading-relaxed flex-1">
-                ${escaparHtml(p.subtitulo)}
-              </p>
-
-              <!-- Status dinâmico -->
-              <div class="mt-3.5 flex items-center gap-1.5 text-[11px] font-bold text-[#fbbf24]">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-                <span>${escaparHtml(statusOferta)}</span>
-              </div>
-
-              <!-- Botão CTA oficial -->
-              <a href="${escaparHtml(urlSegura)}" target="_blank" rel="noopener noreferrer"
-                 class="mt-3 w-full inline-flex items-center justify-center rounded-2xl py-3.5 px-4 text-sm font-black tracking-tight transition active:scale-[0.98] ${ctaCls}">
-                ${ctaLabel}
-              </a>
-            </div>
-          </article>
-        `;
-      }).join("");
-    }
-
-    // =========================================================================
-    // MODAL EDITOR DE LINKS E FOTOS (OTIMIZADO PARA CELULAR)
-    // =========================================================================
-    function renderizarListaEditor() {
-      const lista = document.getElementById("lista-itens-editor");
-      const campoFoto = document.getElementById("campo-foto-perfil");
-      if (campoFoto) campoFoto.value = estado.fotoPerfil || "perfil.jpg";
-      if (!lista) return;
-
-      lista.innerHTML = estado.produtos.map((p, idx) => {
-        const ehML = p.loja === "Mercado Livre";
-        const corLoja = ehML ? "bg-[#ffe600] text-[#0b0416]" : "bg-[#ee4d2d] text-white";
-        const temFoto = Boolean(p.imagem && /^https?:\/\//i.test(p.imagem.trim()));
-
-        return `
-          <div class="rounded-2xl bg-[#0b0416] border border-white/10 p-3 flex items-center justify-between gap-3">
-            <div class="min-w-0 flex-1">
-              <div class="flex flex-wrap items-center gap-1.5 mb-1">
-                <span class="text-[10px] font-black text-[#fbbf24]">#${idx + 1}</span>
-                <span class="rounded-md px-1.5 py-0.5 text-[10px] font-black ${corLoja}">${escaparHtml(p.loja)}</span>
-                <span class="text-[10px] font-semibold ${temFoto ? "text-[#ff99eb]" : "text-slate-400"}">
-                  ${temFoto ? "• Foto personalizada" : "• Arte SVG estúdio"}
-                </span>
-              </div>
-              <p class="text-xs font-bold text-white truncate">${escaparHtml(p.titulo)}</p>
-              <p class="text-[11px] text-slate-400 truncate">${escaparHtml(p.url)}</p>
-            </div>
-            <button type="button" data-editar-idx="${idx}"
-                    class="shrink-0 rounded-xl bg-white/10 hover:bg-[#ff00cc]/25 border border-white/10 hover:border-[#ff00cc]/50 text-white text-xs font-bold px-3.5 py-2.5 active:scale-95 transition">
-              Editar
-            </button>
-          </div>
-        `;
-      }).join("");
-    }
-
-    function abrirFormEdicao(idx) {
-      const p = estado.produtos[idx];
-      if (!p) return;
-      const form = document.getElementById("form-edicao");
-      document.getElementById("campo-idx").value = String(idx);
-      document.getElementById("titulo-form-edicao").textContent = `Editando #${idx + 1} • ${p.loja}`;
-      document.getElementById("campo-titulo").value = p.titulo || "";
-      document.getElementById("campo-badge").value = p.badge || "";
-      document.getElementById("campo-categoria").value = p.categoria || "Consoles & Jogos";
-      document.getElementById("campo-subtitulo").value = p.subtitulo || "";
-      document.getElementById("campo-url").value = p.url || "";
-      document.getElementById("campo-imagem").value = p.imagem || "";
-      form.classList.remove("hidden");
-      form.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
-
-    function gerarHtmlCompleto() {
-      if (!TEMPLATE_HTML_LIMPO) {
-        throw new Error("Template HTML indisponível.");
-      }
-
-      const fotoLimpa = String(estado.fotoPerfil || "perfil.jpg").trim() || "perfil.jpg";
-      const cfgJson = JSON.stringify({ fotoPerfil: fotoLimpa }, null, 2)
-        .replace(/<\/script>/gi, "<\\/script>")
-        .split("\n")
-        .map((linha, i) => (i === 0 ? linha : "    " + linha))
-        .join("\n");
-
-      const prodJson = JSON.stringify(estado.produtos, null, 2)
-        .replace(/<\/script>/gi, "<\\/script>")
-        .split("\n")
-        .map((linha, i) => (i === 0 ? linha : "    " + linha))
-        .join("\n");
-
-      const bloco = `// === INICIO_CONFIG ===\n    const CONFIG_LOJA = ${cfgJson};\n\n    const PRODUTOS_OFICIAIS = ${prodJson};\n    // === FIM_CONFIG ===`;
-      const regex = /\/\/ === INICIO_CONFIG ===[\s\S]*?\/\/ === FIM_CONFIG ===/;
-      if (!regex.test(TEMPLATE_HTML_LIMPO)) {
-        throw new Error("Marcador de configuração não encontrado.");
-      }
-
-      let saida = TEMPLATE_HTML_LIMPO.replace(regex, () => bloco);
-      const fotoEsc = escaparHtml(fotoLimpa);
-      saida = saida.replace(/<link rel="icon" href="[^"]*"\s*\/?>/i, `<link rel="icon" href="${fotoEsc}">`);
-      saida = saida.replace(/<meta property="og:image" content="[^"]*"\s*\/?>/i, `<meta property="og:image" content="${fotoEsc}">`);
-      saida = saida.replace(/(<img[^>]*id="avatar-img"[^>]*\ssrc=")[^"]*(")/i, `$1${fotoEsc}$2`);
-      return saida.trim();
-    }
-
-    function abrirModal() {
-      document.getElementById("form-edicao")?.classList.add("hidden");
-      document.getElementById("caixa-confirmar-restaurar")?.classList.add("hidden");
-      renderizarListaEditor();
-      document.getElementById("modal-editor")?.classList.remove("hidden");
-      document.body.classList.add("overflow-hidden");
-    }
-
-    function fecharModal() {
-      document.getElementById("modal-editor")?.classList.add("hidden");
-      document.body.classList.remove("overflow-hidden");
-    }
-
-    // =========================================================================
-    // INICIALIZAÇÃO E EVENTOS
-    // =========================================================================
-    document.addEventListener("DOMContentLoaded", () => {
-      // Captura o HTML base limpo antes de renderizar os cards dinâmicos
-      capturarTemplateLimpo();
-
-      const elAno = document.getElementById("ano-atual");
-      if (elAno) elAno.textContent = String(new Date().getFullYear());
-
-      // Aplica a foto de perfil com fallback automático
-      aplicarFotoPerfil(estado.fotoPerfil);
-
-      // Compartilhar Loja (Web Share API + fallback cópia com toast)
-      document.getElementById("btn-compartilhar")?.addEventListener("click", async () => {
-        const urlLoja = window.location.href;
-        const dadosShare = {
-          title: "Loja Oficial @leonidarecbr • Achadinhos Gamer GTA VI",
-          text: "Achadinhos Gamer • GTA VI & Setup no Mercado Livre e Shopee:",
-          url: urlLoja
-        };
+      function urlSegura(raw) {
         try {
-          if (navigator.share && /^https?:/i.test(urlLoja)) {
-            await navigator.share(dadosShare);
-            return;
-          }
-        } catch (err) {
-          if (err && err.name === "AbortError") return;
+          const parsed = new URL(raw);
+          if (parsed.protocol !== "https:") return "#";
+          const host = parsed.hostname.toLowerCase();
+          const ok = DOMINIOS_PERMITIDOS.some(function (d) {
+            return host === d || host.endsWith("." + d);
+          });
+          return ok ? parsed.toString() : "#";
+        } catch (e) {
+          return "#";
         }
-        if (copiarTexto(urlLoja)) {
-          mostrarToast("Link da loja copiado! Cole na bio ou nos stories.");
-        } else {
-          mostrarToast("Copie o link da barra do navegador para compartilhar.", "erro");
-        }
-      });
+      }
 
-      // Busca instantânea
-      const campoBusca = document.getElementById("campo-busca");
-      const btnLimparBusca = document.getElementById("btn-limpar-busca");
-      if (campoBusca && btnLimparBusca) {
-        campoBusca.addEventListener("input", () => {
-          termoBusca = campoBusca.value;
-          btnLimparBusca.classList.toggle("hidden", termoBusca.length === 0);
-          renderizarProdutos();
-        });
-        btnLimparBusca.addEventListener("click", () => {
-          campoBusca.value = "";
-          termoBusca = "";
-          btnLimparBusca.classList.add("hidden");
-          renderizarProdutos();
-          campoBusca.focus();
+      const AVATAR_SVG_FALLBACK = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+        '<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 240 240">' +
+          '<defs>' +
+            '<linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">' +
+              '<stop offset="0%" stop-color="#ff00d4"/>' +
+              '<stop offset="55%" stop-color="#ff5e5b"/>' +
+              '<stop offset="100%" stop-color="#ff9922"/>' +
+            '</linearGradient>' +
+          '</defs>' +
+          '<rect width="240" height="240" fill="#120224"/>' +
+          '<circle cx="120" cy="120" r="78" fill="url(#sun)"/>' +
+          '<circle cx="54" cy="122" r="24" fill="#ff1e38"/>' +
+          '<text x="148" y="140" text-anchor="middle" font-family="Arial Black,Impact,sans-serif" font-size="54" font-weight="900" fill="#ffffff">REC</text>' +
+        '</svg>'
+      );
+
+      function configurarAvatar() {
+        const img = document.getElementById("avatarImg");
+        if (!img) return;
+        const fontes = ["perfil.jpg", "1001193376.jpg", AVATAR_SVG_FALLBACK];
+        let idx = 0;
+        img.addEventListener("error", function () {
+          idx += 1;
+          if (idx < fontes.length) {
+            img.src = fontes[idx];
+          }
         });
       }
 
-      // Chips de filtro
-      document.querySelectorAll(".chip-filtro").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filtroAtivo = btn.getAttribute("data-filtro") || "todos";
-          atualizarChips();
-          renderizarProdutos();
+      function criarArteSVG(tipo) {
+        const mapas = {
+          gtavi: '<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2c074a"/><stop offset="55%" stop-color="#ff2bd6" stop-opacity="0.35"/><stop offset="100%" stop-color="#140526"/></linearGradient><linearGradient id="s1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff2bd6"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient></defs><rect width="640" height="360" fill="url(#g1)"/><circle cx="320" cy="182" r="96" fill="url(#s1)" opacity="0.92"/><rect x="200" y="218" width="240" height="8" rx="4" fill="#140526" opacity="0.45"/><rect x="215" y="236" width="210" height="7" rx="3.5" fill="#140526" opacity="0.65"/><text x="320" y="196" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="76" font-weight="900" fill="#ffffff" stroke="#140526" stroke-width="6">GTA VI</text><text x="320" y="274" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="#ffe4f8" letter-spacing="4">MÍDIA FÍSICA OFICIAL</text>',
+          dualsense: '<rect width="640" height="360" fill="#140826"/><circle cx="320" cy="180" r="130" fill="#3b82f6" opacity="0.16"/><path d="M210 155 C235 125, 290 128, 320 128 C350 128, 405 125, 430 155 L458 238 C466 262, 444 282, 422 268 L384 228 L256 228 L218 268 C196 282, 174 262, 182 238 Z" fill="#f8fafc" stroke="#60a5fa" stroke-width="4"/><rect x="278" y="138" width="84" height="44" rx="8" fill="#1e293b"/><circle cx="252" cy="196" r="16" fill="#0f172a"/><circle cx="388" cy="196" r="16" fill="#0f172a"/><circle cx="408" cy="158" r="6" fill="#ff2bd6"/><circle cx="422" cy="172" r="6" fill="#38bdf8"/><text x="320" y="324" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#cbd5e1" letter-spacing="3">DUALSENSE PS5</text>',
+          xbox: '<rect width="640" height="360" fill="#0d1a14"/><circle cx="320" cy="180" r="130" fill="#22c55e" opacity="0.16"/><path d="M212 156 C240 126, 292 130, 320 130 C348 130, 400 126, 428 156 L454 236 C462 258, 440 278, 418 264 L382 226 L258 226 L222 264 C200 278, 178 258, 186 236 Z" fill="#1e293b" stroke="#22c55e" stroke-width="4"/><circle cx="320" cy="154" r="14" fill="#22c55e"/><circle cx="250" cy="178" r="15" fill="#0f172a" stroke="#475569" stroke-width="3"/><circle cx="364" cy="200" r="15" fill="#0f172a" stroke="#475569" stroke-width="3"/><text x="320" y="324" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#bbf7d0" letter-spacing="3">XBOX WIRELESS</text>',
+          psn: '<rect width="640" height="360" fill="#0c1535"/><rect x="196" y="72" width="248" height="216" rx="22" fill="#1d4ed8" stroke="#60a5fa" stroke-width="4"/><rect x="196" y="72" width="248" height="58" rx="22" fill="#1e3a8a"/><text x="320" y="110" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" fill="#ffffff">PLAYSTATION</text><text x="320" y="198" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="44" fill="#fbbf24">GIFT CARD</text><text x="320" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#dbeafe">CRÉDITO DIGITAL PSN</text>',
+          headset: '<rect width="640" height="360" fill="#1a081e"/><circle cx="320" cy="180" r="126" fill="#ef4444" opacity="0.16"/><path d="M225 190 C225 110, 415 110, 415 190" fill="none" stroke="#f8fafc" stroke-width="18" stroke-linecap="round"/><rect x="200" y="178" width="44" height="86" rx="18" fill="#1f2937" stroke="#ef4444" stroke-width="4"/><rect x="396" y="178" width="44" height="86" rx="18" fill="#1f2937" stroke="#ef4444" stroke-width="4"/><path d="M222 254 C240 282, 282 282, 304 274" fill="none" stroke="#ef4444" stroke-width="6" stroke-linecap="round"/><text x="320" y="326" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#fecaca" letter-spacing="3">HYPERX CLOUD STINGER 2</text>',
+          mic: '<rect width="640" height="360" fill="#150826"/><circle cx="320" cy="175" r="124" fill="#ff2bd6" opacity="0.18"/><rect x="284" y="88" width="72" height="122" rx="36" fill="#1f2937" stroke="#ff2bd6" stroke-width="4"/><line x1="296" y1="126" x2="344" y2="126" stroke="#38bdf8" stroke-width="4"/><line x1="296" y1="146" x2="344" y2="146" stroke="#ff2bd6" stroke-width="4"/><line x1="296" y1="166" x2="344" y2="166" stroke="#fbbf24" stroke-width="4"/><path d="M262 178 C262 238, 378 238, 378 178" fill="none" stroke="#e2e8f0" stroke-width="6"/><line x1="320" y1="230" x2="320" y2="274" stroke="#e2e8f0" stroke-width="7"/><rect x="272" y="272" width="96" height="14" rx="7" fill="#334155"/><text x="320" y="328" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#f5d0fe" letter-spacing="3">MICROFONE USB STREAMER</text>',
+          dock: '<rect width="640" height="360" fill="#100924"/><circle cx="320" cy="180" r="120" fill="#38bdf8" opacity="0.16"/><rect x="190" y="210" width="260" height="44" rx="16" fill="#f8fafc" stroke="#38bdf8" stroke-width="4"/><rect x="234" y="138" width="68" height="72" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="3"/><rect x="338" y="138" width="68" height="72" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="3"/><circle cx="268" cy="232" r="6" fill="#22c55e"/><circle cx="372" cy="232" r="6" fill="#22c55e"/><text x="320" y="316" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#bae6fd" letter-spacing="3">BASE DUPLA PS5</text>',
+          mousepad: '<rect width="640" height="360" fill="#120624"/><defs><linearGradient id="rgb" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff2bd6"/><stop offset="50%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient></defs><rect x="108" y="110" width="424" height="156" rx="18" fill="#0b0b14" stroke="url(#rgb)" stroke-width="8"/><rect x="150" y="148" width="220" height="80" rx="10" fill="#1e1b2e" stroke="#475569" stroke-width="2"/><ellipse cx="445" cy="188" rx="34" ry="48" fill="#1e1b2e" stroke="#ff2bd6" stroke-width="3"/><text x="320" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#fde68a" letter-spacing="3">MOUSEPAD XL RGB</text>',
+          led: '<rect width="640" height="360" fill="#140524"/><defs><linearGradient id="l1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff2bd6"/><stop offset="50%" stop-color="#ff6a2b"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient></defs><path d="M90 240 C170 90, 260 90, 320 180 C380 270, 470 270, 550 120" fill="none" stroke="url(#l1)" stroke-width="20" stroke-linecap="round"/><path d="M90 240 C170 90, 260 90, 320 180 C380 270, 470 270, 550 120" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 18" stroke-linecap="round"/><text x="320" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#fbcfe8" letter-spacing="3">FITA LED RGB SMART</text>'
+        };
+        const corpo = mapas[tipo] || mapas.gtavi;
+        return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+          '<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 640 360">' + corpo + "</svg>"
+        );
+      }
+
+      const FILTROS = Object.freeze([
+        { id: "todos", label: "Todos (" + PRODUTOS.length + ")" },
+        { id: "mercadolivre", label: "Mercado Livre" },
+        { id: "shopee", label: "Shopee" },
+        { id: "consoles", label: "Consoles & Jogos" },
+        { id: "setup", label: "Setup & RGB" }
+      ]);
+
+      let filtroAtivo = "todos";
+      let termoBusca = "";
+
+      function mostrarToast(msg) {
+        const el = document.getElementById("toast");
+        if (!el) return;
+        el.textContent = msg;
+        el.classList.add("show");
+        window.clearTimeout(mostrarToast._t);
+        mostrarToast._t = window.setTimeout(function () {
+          el.classList.remove("show");
+        }, 2300);
+      }
+
+      function renderizarFiltros() {
+        const bar = document.getElementById("filterBar");
+        if (!bar) return;
+        bar.textContent = "";
+        FILTROS.forEach(function (f) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "filter-btn" + (filtroAtivo === f.id ? " active" : "");
+          btn.textContent = f.label;
+          btn.addEventListener("click", function () {
+            filtroAtivo = f.id;
+            renderizarFiltros();
+            renderizarProdutos();
+          });
+          bar.appendChild(btn);
         });
-      });
+      }
 
-      // Resetar filtros
-      document.getElementById("btn-resetar-filtros")?.addEventListener("click", () => {
-        filtroAtivo = "todos";
-        termoBusca = "";
-        if (campoBusca) campoBusca.value = "";
-        btnLimparBusca?.classList.add("hidden");
-        atualizarChips();
-        renderizarProdutos();
-      });
+      function renderizarProdutos() {
+        const grid = document.getElementById("productGrid");
+        const countEl = document.getElementById("resultCount");
+        if (!grid || !countEl) return;
 
-      // Controle do modal editor
-      document.getElementById("btn-abrir-editor")?.addEventListener("click", abrirModal);
-      document.getElementById("btn-abrir-editor-topo")?.addEventListener("click", abrirModal);
-      document.getElementById("btn-fechar-modal")?.addEventListener("click", fecharModal);
-      document.getElementById("modal-editor")?.addEventListener("click", (ev) => {
-        if (ev.target === ev.currentTarget) fecharModal();
-      });
+        const q = termoBusca.trim().toLowerCase();
+        const lista = PRODUTOS.filter(function (p) {
+          const bateFiltro =
+            filtroAtivo === "todos" ||
+            p.loja === filtroAtivo ||
+            p.categoria === filtroAtivo;
+          if (!bateFiltro) return false;
+          if (!q) return true;
+          return (
+            p.nome.toLowerCase().indexOf(q) !== -1 ||
+            p.desc.toLowerCase().indexOf(q) !== -1 ||
+            p.tag.toLowerCase().indexOf(q) !== -1
+          );
+        });
 
-      // Salvar foto de perfil
-      document.getElementById("btn-salvar-foto-perfil")?.addEventListener("click", () => {
-        const novoCaminho = (document.getElementById("campo-foto-perfil")?.value || "").trim() || "perfil.jpg";
-        estado.fotoPerfil = novoCaminho;
-        salvarRascunho();
-        aplicarFotoPerfil(novoCaminho);
-        mostrarToast("Foto de perfil atualizada na prévia!");
-      });
+        countEl.textContent =
+          lista.length === 1
+            ? "1 oferta encontrada"
+            : lista.length + " ofertas ativas hoje";
 
-      // Editar item da lista
-      document.getElementById("lista-itens-editor")?.addEventListener("click", (ev) => {
-        const btn = ev.target.closest("button[data-editar-idx]");
-        if (!btn) return;
-        const idx = parseInt(btn.getAttribute("data-editar-idx") || "-1", 10);
-        if (!isNaN(idx) && idx >= 0) abrirFormEdicao(idx);
-      });
+        grid.textContent = "";
 
-      document.getElementById("btn-fechar-form")?.addEventListener("click", () => {
-        document.getElementById("form-edicao")?.classList.add("hidden");
-      });
+        if (lista.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "empty-state";
+          empty.textContent = "Nenhum achadinho encontrado para essa busca. Tente outro termo.";
+          grid.appendChild(empty);
+          return;
+        }
 
-      document.getElementById("form-edicao")?.addEventListener("submit", (ev) => {
-        ev.preventDefault();
-        const idx = parseInt(document.getElementById("campo-idx").value, 10);
-        if (isNaN(idx) || !estado.produtos[idx]) return;
+        lista.forEach(function (p) {
+          const card = document.createElement("article");
+          card.className = "card";
 
-        estado.produtos[idx] = {
-          ...estado.produtos[idx],
-          titulo: document.getElementById("campo-titulo").value.trim(),
-          badge: document.getElementById("campo-badge").value.trim(),
-          categoria: document.getElementById("campo-categoria").value,
-          subtitulo: document.getElementById("campo-subtitulo").value.trim(),
-          url: document.getElementById("campo-url").value.trim(),
-          imagem: document.getElementById("campo-imagem").value.trim()
-        };
+          const media = document.createElement("div");
+          media.className = "card-media";
 
-        salvarRascunho();
-        document.getElementById("form-edicao")?.classList.add("hidden");
-        renderizarListaEditor();
-        atualizarChips();
-        renderizarProdutos();
-        mostrarToast("Produto atualizado! Copie o código index.html para publicar.");
-      });
+          const img = document.createElement("img");
+          img.alt = p.nome;
+          img.loading = "lazy";
+          const fallbackArte = criarArteSVG(p.arte);
+          img.src = p.foto ? p.foto : fallbackArte;
+          img.addEventListener("error", function () {
+            if (img.src !== fallbackArte) img.src = fallbackArte;
+          });
+          media.appendChild(img);
 
-      // Restaurar padrão (confirmação inline)
-      document.getElementById("btn-pedir-restaurar")?.addEventListener("click", () => {
-        document.getElementById("caixa-confirmar-restaurar")?.classList.toggle("hidden");
-      });
-      document.getElementById("btn-cancelar-restaurar")?.addEventListener("click", () => {
-        document.getElementById("caixa-confirmar-restaurar")?.classList.add("hidden");
-      });
-      document.getElementById("btn-confirmar-restaurar")?.addEventListener("click", () => {
-        try {
-          localStorage.removeItem(STORAGE_KEY);
-        } catch (err) {}
-        estado = {
-          fotoPerfil: CONFIG_LOJA.fotoPerfil || "perfil.jpg",
-          produtos: PRODUTOS_OFICIAIS.map((item) => ({ ...item }))
-        };
-        document.getElementById("caixa-confirmar-restaurar")?.classList.add("hidden");
-        document.getElementById("form-edicao")?.classList.add("hidden");
-        aplicarFotoPerfil(estado.fotoPerfil);
-        atualizarBannerRascunho();
-        renderizarListaEditor();
-        atualizarChips();
-        renderizarProdutos();
-        mostrarToast("Loja restaurada para os 9 links padrão.");
-      });
+          const bStore = document.createElement("span");
+          const ehML = p.loja === "mercadolivre";
+          bStore.className = "badge-store " + (ehML ? "badge-ml" : "badge-shopee");
+          bStore.textContent = ehML ? "Mercado Livre" : "Shopee";
+          media.appendChild(bStore);
 
-      // Copiar código index.html puro
-      document.getElementById("btn-copiar-html")?.addEventListener("click", () => {
-        try {
-          const html = gerarHtmlCompleto();
-          if (copiarTexto(html)) {
-            mostrarToast("Código index.html copiado! Cole direto no seu GitHub.");
-          } else {
-            mostrarToast("Use o botão 'Baixar arquivo index.html' logo abaixo.", "erro");
+          if (p.tag) {
+            const bTag = document.createElement("span");
+            bTag.className = "badge-tag";
+            bTag.textContent = p.tag;
+            media.appendChild(bTag);
           }
-        } catch (err) {
-          console.error(err);
-          mostrarToast("Erro ao gerar o HTML atualizado.", "erro");
-        }
-      });
 
-      // Baixar arquivo index.html puro
-      document.getElementById("btn-baixar-html")?.addEventListener("click", () => {
-        try {
-          const html = gerarHtmlCompleto();
-          const blob = new Blob([html], { type: "text/html;charset=utf-8" });
-          const blobUrl = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = blobUrl;
-          a.download = "index.html";
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(blobUrl);
-          mostrarToast("Arquivo index.html baixado no celular!");
-        } catch (err) {
-          console.error(err);
-          mostrarToast("Não foi possível baixar o arquivo.", "erro");
-        }
-      });
+          const body = document.createElement("div");
+          body.className = "card-body";
 
-      // Renderização inicial
-      atualizarBannerRascunho();
-      atualizarChips();
+          const cat = document.createElement("div");
+          cat.className = "card-cat";
+          cat.textContent = p.categoria === "consoles" ? "Consoles & Jogos" : "Setup & Periféricos";
+
+          const title = document.createElement("h2");
+          title.className = "card-title";
+          title.textContent = p.nome;
+
+          const desc = document.createElement("p");
+          desc.className = "card-desc";
+          desc.textContent = p.desc;
+
+          const link = document.createElement("a");
+          link.className = "btn-buy " + (ehML ? "btn-buy-ml" : "btn-buy-shopee");
+          link.href = urlSegura(p.url);
+          link.target = "_blank";
+          link.rel = "noopener noreferrer sponsored nofollow";
+          link.textContent = ehML ? "Ver Oferta no Mercado Livre →" : "Ver Oferta na Shopee →";
+
+          body.appendChild(cat);
+          body.appendChild(title);
+          body.appendChild(desc);
+          body.appendChild(link);
+
+          card.appendChild(media);
+          card.appendChild(body);
+          grid.appendChild(card);
+        });
+      }
+
+      function configurarAcoes() {
+        const search = document.getElementById("searchInput");
+        if (search) {
+          search.addEventListener("input", function (ev) {
+            termoBusca = ev.target.value || "";
+            renderizarProdutos();
+          });
+        }
+
+        const shareBtn = document.getElementById("shareBtn");
+        if (shareBtn) {
+          shareBtn.addEventListener("click", function () {
+            const urlAtual = window.location.href;
+            if (navigator.share) {
+              navigator.share({
+                title: "@leonidarecbr • Achadinhos Gamer",
+                text: "Olha a loja oficial de achadinhos gamer do @leonidarecbr:",
+                url: urlAtual
+              }).catch(function () {});
+            } else if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(urlAtual)
+                .then(function () { mostrarToast("Link da loja copiado!"); })
+                .catch(function () { mostrarToast("Copie o link da barra do navegador."); });
+            } else {
+              mostrarToast("Copie o link da barra do navegador.");
+            }
+          });
+        }
+      }
+
+      configurarAvatar();
+      renderizarFiltros();
       renderizarProdutos();
-    });
+      configurarAcoes();
+    })();
   </script>
 </body>
 </html>
-```
