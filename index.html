@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0416" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none';" />
   <title>@leonidarecbr • Achadinhos Gamer &amp; GTA VI</title>
   <meta name="description" content="Loja oficial @leonidarecbr — GTA VI, controles, headsets e setup gamer com links oficiais do Mercado Livre e Shopee." />
   <meta property="og:title" content="@leonidarecbr • Loja Oficial Gamer" />
@@ -13,11 +13,9 @@
   <link rel="icon" type="image/jpeg" href="perfil.jpg" />
   <style>
     :root {
-      --bg-0: #090312;
-      --bg-1: #130724;
-      --card: rgba(23, 10, 42, 0.92);
+      --card: rgba(23, 10, 42, 0.94);
       --card-solid: #170a2a;
-      --border: rgba(255, 43, 214, 0.22);
+      --border: rgba(255, 43, 214, 0.25);
       --border-soft: rgba(255, 255, 255, 0.1);
       --pink: #ff2bd6;
       --coral: #ff6a2b;
@@ -147,16 +145,26 @@
       border-radius: 50%;
       padding: 3px;
       background: linear-gradient(135deg, var(--pink), var(--coral), var(--gold));
-      box-shadow: 0 0 28px rgba(255, 43, 214, 0.38);
+      box-shadow: 0 0 28px rgba(255, 43, 214, 0.4);
     }
 
-    .avatar-img {
+    .avatar-inner {
+      position: relative;
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      object-fit: cover;
+      overflow: hidden;
+      background: #120224;
+    }
+
+    .avatar-svg,
+    .avatar-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       display: block;
-      background: #140624;
+      object-fit: cover;
     }
 
     .verified-badge {
@@ -172,6 +180,7 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+      z-index: 2;
     }
 
     .verified-badge svg {
@@ -333,21 +342,21 @@
       transform: translateY(-2px);
     }
 
+    .card.hidden {
+      display: none;
+    }
+
     .card-media {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg, #1b0b33 0%, #2a0d47 55%, #160728 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #140526;
       overflow: hidden;
     }
 
-    .card-media img {
+    .card-art-svg {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
     }
 
@@ -361,6 +370,7 @@
       font-weight: 800;
       letter-spacing: 0.02em;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      z-index: 2;
     }
 
     .badge-ml {
@@ -379,13 +389,14 @@
       right: 12px;
       padding: 5px 10px;
       border-radius: 999px;
-      background: rgba(11, 4, 22, 0.85);
-      border: 1px solid rgba(251, 191, 36, 0.48);
+      background: rgba(11, 4, 22, 0.88);
+      border: 1px solid rgba(251, 191, 36, 0.5);
       color: var(--gold);
       font-size: 10.5px;
       font-weight: 800;
       letter-spacing: 0.05em;
       text-transform: uppercase;
+      z-index: 2;
     }
 
     .card-body {
@@ -427,7 +438,7 @@
       font-size: 14px;
       font-weight: 800;
       letter-spacing: 0.01em;
-      transition: transform 0.14s ease, filter 0.14s ease;
+      transition: transform 0.14s ease;
     }
 
     .btn-buy:active { transform: scale(0.98); }
@@ -445,6 +456,7 @@
     }
 
     .empty-state {
+      display: none;
       text-align: center;
       padding: 36px 18px;
       background: var(--card);
@@ -452,6 +464,10 @@
       border-radius: var(--radius-md);
       color: var(--muted);
       font-size: 14px;
+    }
+
+    .empty-state.show {
+      display: block;
     }
 
     .footer {
@@ -512,7 +528,28 @@
 
       <div class="avatar-wrap">
         <div class="avatar-ring">
-          <img id="avatarImg" class="avatar-img" src="perfil.jpg" alt="Logo @leonidarecbr" />
+          <div class="avatar-inner" id="avatarInner">
+            <svg class="avatar-svg" viewBox="0 0 240 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Logo REC @leonidarecbr">
+              <defs>
+                <linearGradient id="avSun" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ff00e5" />
+                  <stop offset="55%" stop-color="#ff5a6b" />
+                  <stop offset="100%" stop-color="#ff9b26" />
+                </linearGradient>
+                <radialGradient id="avGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="52%" stop-color="#ff00cc" stop-opacity="0.48" />
+                  <stop offset="100%" stop-color="#120224" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <rect width="240" height="240" fill="#120224" />
+              <circle cx="120" cy="120" r="108" fill="url(#avGlow)" />
+              <circle cx="120" cy="120" r="76" fill="url(#avSun)" />
+              <path d="M36 226 Q50 192 56 172 M56 172 Q36 164 26 176 M56 172 Q44 156 32 158 M56 172 Q68 158 76 168" stroke="#110222" stroke-width="4" fill="none" stroke-linecap="round" />
+              <path d="M204 226 Q190 194 184 174 M184 174 Q202 166 212 178 M184 174 Q194 158 206 160 M184 174 Q172 162 164 172" stroke="#110222" stroke-width="4" fill="none" stroke-linecap="round" />
+              <circle cx="52" cy="122" r="24" fill="#ff1c35" />
+              <text x="148" y="140" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="52" font-weight="900" fill="#ffffff" letter-spacing="1">REC</text>
+            </svg>
+          </div>
         </div>
         <span class="verified-badge" title="Perfil Oficial Verificado" aria-label="Verificado">
           <svg viewBox="0 0 24 24" fill="none" stroke="#170a2a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -549,14 +586,293 @@
       />
     </div>
 
-    <nav class="filters" id="filterBar" aria-label="Filtros da loja"></nav>
+    <nav class="filters" id="filterBar" aria-label="Filtros da loja">
+      <button type="button" class="filter-btn active" data-filter="todos">Todos (9)</button>
+      <button type="button" class="filter-btn" data-filter="mercadolivre">Mercado Livre</button>
+      <button type="button" class="filter-btn" data-filter="shopee">Shopee</button>
+      <button type="button" class="filter-btn" data-filter="consoles">Consoles &amp; Jogos</button>
+      <button type="button" class="filter-btn" data-filter="setup">Setup &amp; RGB</button>
+    </nav>
 
     <div class="section-bar">
       <span class="left">Loja Oficial @leonidarecbr</span>
       <span class="right" id="resultCount">9 ofertas ativas hoje</span>
     </div>
 
-    <section class="grid" id="productGrid" aria-live="polite"></section>
+    <section class="grid" id="productGrid" aria-live="polite">
+      <!-- 1. GTA VI -->
+      <article class="card" data-loja="mercadolivre" data-cat="consoles" data-q="gta vi 6 midia fisica ps5 xbox leonida jogo">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="gtBg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2c074a" />
+                <stop offset="55%" stop-color="#6b1068" />
+                <stop offset="100%" stop-color="#140526" />
+              </linearGradient>
+              <linearGradient id="gtSun" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff2bd6" />
+                <stop offset="60%" stop-color="#ff6a2b" />
+                <stop offset="100%" stop-color="#fbbf24" />
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#gtBg)" />
+            <circle cx="320" cy="174" r="102" fill="url(#gtSun)" />
+            <rect x="205" y="210" width="230" height="8" rx="4" fill="#140526" opacity="0.45" />
+            <rect x="220" y="230" width="200" height="7" rx="3.5" fill="#140526" opacity="0.65" />
+            <text x="320" y="194" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="80" font-weight="900" fill="#ffffff" stroke="#140526" stroke-width="7">GTA VI</text>
+            <text x="320" y="314" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="800" fill="#ffe4f8" letter-spacing="4">MÍDIA FÍSICA OFICIAL</text>
+          </svg>
+          <span class="badge-store badge-ml">Mercado Livre</span>
+          <span class="badge-tag">MAIS PROCURADO</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Consoles &amp; Jogos</div>
+          <h2 class="card-title">GTA VI — Mídia Física (PS5 / Xbox)</h2>
+          <p class="card-desc">Garanta sua cópia oficial em mídia física para jogar em Leonida com entrega segura.</p>
+          <a class="btn-buy btn-buy-ml" href="https://meli.la/2GmedmS" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta no Mercado Livre →</a>
+        </div>
+      </article>
+
+      <!-- 2. DualSense PS5 -->
+      <article class="card" data-loja="mercadolivre" data-cat="consoles" data-q="controle sony dualsense ps5 playstation original">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <radialGradient id="dsGlow" cx="50%" cy="48%" r="48%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.38" />
+                <stop offset="100%" stop-color="#140826" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="640" height="360" fill="#140826" />
+            <rect width="640" height="360" fill="url(#dsGlow)" />
+            <path d="M210 155 C235 125, 290 128, 320 128 C350 128, 405 125, 430 155 L458 238 C466 262, 444 282, 422 268 L384 228 L256 228 L218 268 C196 282, 174 262, 182 238 Z" fill="#f8fafc" stroke="#60a5fa" stroke-width="5" />
+            <rect x="278" y="138" width="84" height="44" rx="8" fill="#1e293b" />
+            <circle cx="254" cy="196" r="16" fill="#0f172a" />
+            <circle cx="386" cy="196" r="16" fill="#0f172a" />
+            <circle cx="406" cy="158" r="6" fill="#ff2bd6" />
+            <circle cx="420" cy="172" r="6" fill="#38bdf8" />
+            <circle cx="392" cy="172" r="6" fill="#22c55e" />
+            <text x="320" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#cbd5e1" letter-spacing="3">SONY DUALSENSE PS5</text>
+          </svg>
+          <span class="badge-store badge-ml">Mercado Livre</span>
+          <span class="badge-tag">OFICIAL SONY</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Consoles &amp; Jogos</div>
+          <h2 class="card-title">Controle Sony DualSense PS5 Original</h2>
+          <p class="card-desc">Resposta tátil imersiva e gatilhos adaptáveis originais Sony para máxima precisão.</p>
+          <a class="btn-buy btn-buy-ml" href="https://meli.la/2F4dsqF" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta no Mercado Livre →</a>
+        </div>
+      </article>
+
+      <!-- 3. Controle Xbox -->
+      <article class="card" data-loja="mercadolivre" data-cat="consoles" data-q="controle xbox wireless original series x s pc bluetooth">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <radialGradient id="xbGlow" cx="50%" cy="48%" r="48%">
+                <stop offset="0%" stop-color="#22c55e" stop-opacity="0.34" />
+                <stop offset="100%" stop-color="#0d1a14" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="640" height="360" fill="#0d1a14" />
+            <rect width="640" height="360" fill="url(#xbGlow)" />
+            <path d="M212 156 C240 126, 292 130, 320 130 C348 130, 400 126, 428 156 L454 236 C462 258, 440 278, 418 264 L382 226 L258 226 L222 264 C200 278, 178 258, 186 236 Z" fill="#1e293b" stroke="#22c55e" stroke-width="5" />
+            <circle cx="320" cy="154" r="14" fill="#22c55e" />
+            <circle cx="250" cy="178" r="16" fill="#0f172a" stroke="#64748b" stroke-width="3" />
+            <circle cx="364" cy="200" r="16" fill="#0f172a" stroke="#64748b" stroke-width="3" />
+            <circle cx="408" cy="166" r="6" fill="#ef4444" />
+            <circle cx="394" cy="180" r="6" fill="#22c55e" />
+            <text x="320" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#bbf7d0" letter-spacing="3">XBOX WIRELESS ORIGINAL</text>
+          </svg>
+          <span class="badge-store badge-ml">Mercado Livre</span>
+          <span class="badge-tag">ORIGINAL XBOX</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Consoles &amp; Jogos</div>
+          <h2 class="card-title">Controle Xbox Wireless Original</h2>
+          <p class="card-desc">Compatível com Xbox Series X|S, PC e celular via Bluetooth com pegada texturizada.</p>
+          <a class="btn-buy btn-buy-ml" href="https://meli.la/2cfQxcY" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta no Mercado Livre →</a>
+        </div>
+      </article>
+
+      <!-- 4. Gift Card PSN -->
+      <article class="card" data-loja="mercadolivre" data-cat="consoles" data-q="gift card playstation store psn credito digital ps plus">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="psBg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0b1538" />
+                <stop offset="100%" stop-color="#172554" />
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="url(#psBg)" />
+            <rect x="184" y="68" width="272" height="224" rx="22" fill="#1d4ed8" stroke="#60a5fa" stroke-width="4" />
+            <rect x="184" y="68" width="272" height="58" rx="22" fill="#1e3a8a" />
+            <text x="320" y="106" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="22" fill="#ffffff" letter-spacing="1">PLAYSTATION</text>
+            <text x="320" y="196" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="42" fill="#fbbf24">GIFT CARD</text>
+            <text x="320" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="800" fill="#dbeafe" letter-spacing="2">CRÉDITO DIGITAL PSN</text>
+          </svg>
+          <span class="badge-store badge-ml">Mercado Livre</span>
+          <span class="badge-tag">ENVIO RÁPIDO</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Consoles &amp; Jogos</div>
+          <h2 class="card-title">Gift Card PlayStation Store (PSN)</h2>
+          <p class="card-desc">Crédito digital oficial para comprar jogos, DLCs e assinatura PS Plus sem cartão.</p>
+          <a class="btn-buy btn-buy-ml" href="https://meli.la/2KrLitS" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta no Mercado Livre →</a>
+        </div>
+      </article>
+
+      <!-- 5. Headset HyperX -->
+      <article class="card" data-loja="mercadolivre" data-cat="setup" data-q="headset gamer hyperx cloud stinger 2 fone ouvido audio">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <radialGradient id="hsGlow" cx="50%" cy="48%" r="46%">
+                <stop offset="0%" stop-color="#ef4444" stop-opacity="0.34" />
+                <stop offset="100%" stop-color="#1a081e" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="640" height="360" fill="#1a081e" />
+            <rect width="640" height="360" fill="url(#hsGlow)" />
+            <path d="M225 190 C225 106, 415 106, 415 190" fill="none" stroke="#f8fafc" stroke-width="18" stroke-linecap="round" />
+            <rect x="198" y="176" width="46" height="88" rx="18" fill="#1f2937" stroke="#ef4444" stroke-width="4" />
+            <rect x="396" y="176" width="46" height="88" rx="18" fill="#1f2937" stroke="#ef4444" stroke-width="4" />
+            <path d="M222 256 C242 286, 286 286, 308 276" fill="none" stroke="#ef4444" stroke-width="6" stroke-linecap="round" />
+            <text x="320" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#fecaca" letter-spacing="3">HYPERX CLOUD STINGER 2</text>
+          </svg>
+          <span class="badge-store badge-ml">Mercado Livre</span>
+          <span class="badge-tag">CUSTO-BENEFÍCIO</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Setup &amp; Periféricos</div>
+          <h2 class="card-title">Headset Gamer HyperX Cloud Stinger 2</h2>
+          <p class="card-desc">Áudio nítido para ouvir cada passo, microfone com cancelamento e espuma confortável.</p>
+          <a class="btn-buy btn-buy-ml" href="https://meli.la/27zz1Qp" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta no Mercado Livre →</a>
+        </div>
+      </article>
+
+      <!-- 6. Microfone Fifine -->
+      <article class="card" data-loja="shopee" data-cat="setup" data-q="microfone gamer usb fifine streamer live twitch kick">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <radialGradient id="mcGlow" cx="50%" cy="48%" r="48%">
+                <stop offset="0%" stop-color="#ff2bd6" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#150826" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="640" height="360" fill="#150826" />
+            <rect width="640" height="360" fill="url(#mcGlow)" />
+            <rect x="284" y="84" width="72" height="126" rx="36" fill="#1f2937" stroke="#ff2bd6" stroke-width="4" />
+            <line x1="298" y1="122" x2="342" y2="122" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+            <line x1="298" y1="144" x2="342" y2="144" stroke="#ff2bd6" stroke-width="4" stroke-linecap="round" />
+            <line x1="298" y1="166" x2="342" y2="166" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" />
+            <path d="M262 178 C262 238, 378 238, 378 178" fill="none" stroke="#e2e8f0" stroke-width="6" stroke-linecap="round" />
+            <line x1="320" y1="230" x2="320" y2="274" stroke="#e2e8f0" stroke-width="7" />
+            <rect x="270" y="272" width="100" height="14" rx="7" fill="#334155" />
+            <text x="320" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#f5d0fe" letter-spacing="3">MICROFONE USB FIFINE</text>
+          </svg>
+          <span class="badge-store badge-shopee">Shopee</span>
+          <span class="badge-tag">ESTILO STREAMER</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Setup &amp; Periféricos</div>
+          <h2 class="card-title">Microfone Gamer USB Fifine (Estilo Streamer)</h2>
+          <p class="card-desc">Qualidade de áudio limpa estilo live da Twitch e Kick, plug &amp; play direto no USB.</p>
+          <a class="btn-buy btn-buy-shopee" href="https://s.shopee.com.br/2VtS46nv3a" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta na Shopee →</a>
+        </div>
+      </article>
+
+      <!-- 7. Base Carregadora PS5 -->
+      <article class="card" data-loja="shopee" data-cat="consoles" data-q="base carregadora dupla controle ps5 dualsense dock">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <radialGradient id="dkGlow" cx="50%" cy="50%" r="48%">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.34" />
+                <stop offset="100%" stop-color="#100924" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="640" height="360" fill="#100924" />
+            <rect width="640" height="360" fill="url(#dkGlow)" />
+            <rect x="188" y="210" width="264" height="44" rx="16" fill="#f8fafc" stroke="#38bdf8" stroke-width="4" />
+            <rect x="234" y="136" width="68" height="74" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="3" />
+            <rect x="338" y="136" width="68" height="74" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="3" />
+            <circle cx="268" cy="232" r="6" fill="#22c55e" />
+            <circle cx="372" cy="232" r="6" fill="#22c55e" />
+            <text x="320" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#bae6fd" letter-spacing="3">BASE CARREGADORA PS5</text>
+          </svg>
+          <span class="badge-store badge-shopee">Shopee</span>
+          <span class="badge-tag">ACHADINHO</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Consoles &amp; Jogos</div>
+          <h2 class="card-title">Base Carregadora Dupla para Controle PS5</h2>
+          <p class="card-desc">Carregue dois DualSense ao mesmo tempo com encaixe rápido e LED indicador.</p>
+          <a class="btn-buy btn-buy-shopee" href="https://s.shopee.com.br/4B1g3KDY63" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta na Shopee →</a>
+        </div>
+      </article>
+
+      <!-- 8. Mousepad RGB -->
+      <article class="card" data-loja="shopee" data-cat="setup" data-q="mousepad gamer extra grande rgb speed led teclado mouse">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="mpRgb" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ff2bd6" />
+                <stop offset="50%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#fbbf24" />
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="#120624" />
+            <rect x="108" y="108" width="424" height="158" rx="18" fill="#0b0b14" stroke="url(#mpRgb)" stroke-width="8" />
+            <rect x="150" y="146" width="220" height="82" rx="10" fill="#1e1b2e" stroke="#475569" stroke-width="2" />
+            <ellipse cx="445" cy="187" rx="34" ry="48" fill="#1e1b2e" stroke="#ff2bd6" stroke-width="3" />
+            <text x="320" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#fde68a" letter-spacing="3">MOUSEPAD GAMER XL RGB</text>
+          </svg>
+          <span class="badge-store badge-shopee">Shopee</span>
+          <span class="badge-tag">UPGRADE SETUP</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Setup &amp; Periféricos</div>
+          <h2 class="card-title">Mousepad Gamer Extra Grande RGB</h2>
+          <p class="card-desc">Superfície speed gigante para teclado e mouse com borda iluminada em LED RGB.</p>
+          <a class="btn-buy btn-buy-shopee" href="https://s.shopee.com.br/5LDdRWL5wi" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta na Shopee →</a>
+        </div>
+      </article>
+
+      <!-- 9. Fita LED RGB -->
+      <article class="card" data-loja="shopee" data-cat="setup" data-q="fita led rgb setup tv app neon vice city quarto">
+        <div class="card-media">
+          <svg class="card-art-svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="ldNeon" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ff2bd6" />
+                <stop offset="50%" stop-color="#ff6a2b" />
+                <stop offset="100%" stop-color="#38bdf8" />
+              </linearGradient>
+            </defs>
+            <rect width="640" height="360" fill="#140524" />
+            <path d="M90 240 C170 90, 260 90, 320 180 C380 270, 470 270, 550 120" fill="none" stroke="url(#ldNeon)" stroke-width="22" stroke-linecap="round" />
+            <path d="M90 240 C170 90, 260 90, 320 180 C380 270, 470 270, 550 120" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 18" stroke-linecap="round" />
+            <text x="320" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#fbcfe8" letter-spacing="3">FITA LED RGB SMART APP</text>
+          </svg>
+          <span class="badge-store badge-shopee">Shopee</span>
+          <span class="badge-tag">CLIMA VICE CITY</span>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Setup &amp; Periféricos</div>
+          <h2 class="card-title">Fita LED RGB para Setup / TV (com App)</h2>
+          <p class="card-desc">Deixe seu quarto ou TV com clima neon de Vice City controlando cores pelo celular.</p>
+          <a class="btn-buy btn-buy-shopee" href="https://s.shopee.com.br/7AfHcwzIg9" target="_blank" rel="noopener noreferrer sponsored nofollow">Ver Oferta na Shopee →</a>
+        </div>
+      </article>
+    </section>
+
+    <div class="empty-state" id="emptyState">Nenhum achadinho encontrado para essa busca. Tente outro termo.</div>
 
     <footer class="footer">
       <p><strong>@leonidarecbr</strong> • Seleção oficial de achadinhos gamer.</p>
@@ -570,194 +886,87 @@
     (function () {
       "use strict";
 
-      /* =====================================================================
-         SOMENTE VOCÊ EDITA AQUI (NO SEU GITHUB COM LOGIN E SENHA)
-         Visitantes NÃO conseguem alterar nada — loja 100% somente leitura.
-         ===================================================================== */
-      const DOMINIOS_PERMITIDOS = Object.freeze([
-        "meli.la",
-        "mercadolivre.com.br",
-        "produto.mercadolivre.com.br",
-        "s.shopee.com.br",
-        "shopee.com.br"
-      ]);
+      /* 1. Tenta carregar foto real em memória; só insere a foto se existir de verdade */
+      var avatarInner = document.getElementById("avatarInner");
+      if (avatarInner) {
+        var fotos = ["perfil.jpg", "perfil.png", "1001193376.jpg"];
+        var fi = 0;
+        var testarFoto = function () {
+          if (fi >= fotos.length) return;
+          var probe = new Image();
+          var src = fotos[fi];
+          probe.onload = function () {
+            if (probe.naturalWidth > 0) {
+              var img = document.createElement("img");
+              img.className = "avatar-photo";
+              img.alt = "Logo @leonidarecbr";
+              img.src = src;
+              avatarInner.appendChild(img);
+            } else {
+              fi += 1;
+              testarFoto();
+            }
+          };
+          probe.onerror = function () {
+            fi += 1;
+            testarFoto();
+          };
+          probe.src = src;
+        };
+        testarFoto();
+      }
 
-      const PRODUTOS = Object.freeze([
-        Object.freeze({
-          id: 1,
-          nome: "GTA VI — Mídia Física (PS5 / Xbox)",
-          desc: "Garanta sua cópia oficial em mídia física para jogar em Leonida com entrega segura.",
-          loja: "mercadolivre",
-          categoria: "consoles",
-          tag: "MAIS PROCURADO",
-          arte: "gtavi",
-          foto: "",
-          url: "[https://meli.la/2GmedmS](https://meli.la/2GmedmS)"
-        }),
-        Object.freeze({
-          id: 2,
-          nome: "Controle Sony DualSense PS5 Original",
-          desc: "Resposta tátil imersiva e gatilhos adaptáveis originais Sony para máxima precisão.",
-          loja: "mercadolivre",
-          categoria: "consoles",
-          tag: "OFICIAL SONY",
-          arte: "dualsense",
-          foto: "",
-          url: "[https://meli.la/2F4dsqF](https://meli.la/2F4dsqF)"
-        }),
-        Object.freeze({
-          id: 3,
-          nome: "Controle Xbox Wireless Original",
-          desc: "Compatível com Xbox Series X|S, PC e celular via Bluetooth com pegada texturizada.",
-          loja: "mercadolivre",
-          categoria: "consoles",
-          tag: "ORIGINAL XBOX",
-          arte: "xbox",
-          foto: "",
-          url: "[https://meli.la/2cfQxcY](https://meli.la/2cfQxcY)"
-        }),
-        Object.freeze({
-          id: 4,
-          nome: "Gift Card PlayStation Store (PSN)",
-          desc: "Crédito digital oficial para comprar jogos, DLCs e assinatura PS Plus sem cartão.",
-          loja: "mercadolivre",
-          categoria: "consoles",
-          tag: "ENVIO RÁPIDO",
-          arte: "psn",
-          foto: "",
-          url: "[https://meli.la/2KrLitS](https://meli.la/2KrLitS)"
-        }),
-        Object.freeze({
-          id: 5,
-          nome: "Headset Gamer HyperX Cloud Stinger 2",
-          desc: "Áudio nítido para ouvir cada passo, microfone com cancelamento e espuma confortável.",
-          loja: "mercadolivre",
-          categoria: "setup",
-          tag: "CUSTO-BENEFÍCIO",
-          arte: "headset",
-          foto: "",
-          url: "[https://meli.la/27zz1Qp](https://meli.la/27zz1Qp)"
-        }),
-        Object.freeze({
-          id: 6,
-          nome: "Microfone Gamer USB Fifine (Estilo Streamer)",
-          desc: "Qualidade de áudio limpa estilo live da Twitch e Kick, plug & play direto no USB.",
-          loja: "shopee",
-          categoria: "setup",
-          tag: "ESTILO STREAMER",
-          arte: "mic",
-          foto: "",
-          url: "[https://s.shopee.com.br/2VtS46nv3a](https://s.shopee.com.br/2VtS46nv3a)"
-        }),
-        Object.freeze({
-          id: 7,
-          nome: "Base Carregadora Dupla para Controle PS5",
-          desc: "Carregue dois DualSense ao mesmo tempo com encaixe rápido e LED indicador.",
-          loja: "shopee",
-          categoria: "consoles",
-          tag: "ACHADINHO",
-          arte: "dock",
-          foto: "",
-          url: "[https://s.shopee.com.br/4B1g3KDY63](https://s.shopee.com.br/4B1g3KDY63)"
-        }),
-        Object.freeze({
-          id: 8,
-          nome: "Mousepad Gamer Extra Grande RGB",
-          desc: "Superfície speed gigante para teclado e mouse com borda iluminada em LED RGB.",
-          loja: "shopee",
-          categoria: "setup",
-          tag: "UPGRADE SETUP",
-          arte: "mousepad",
-          foto: "",
-          url: "[https://s.shopee.com.br/5LDdRWL5wi](https://s.shopee.com.br/5LDdRWL5wi)"
-        }),
-        Object.freeze({
-          id: 9,
-          nome: "Fita LED RGB para Setup / TV (com App)",
-          desc: "Deixe seu quarto ou TV com clima neon de Vice City controlando cores pelo celular.",
-          loja: "shopee",
-          categoria: "setup",
-          tag: "CLIMA VICE CITY",
-          arte: "led",
-          foto: "",
-          url: "[https://s.shopee.com.br/7AfHcwzIg9](https://s.shopee.com.br/7AfHcwzIg9)"
-        })
-      ]);
+      /* 2. Filtros e busca instantânea sobre os 9 cards estáticos */
+      var cards = Array.prototype.slice.call(document.querySelectorAll("#productGrid .card"));
+      var btns = Array.prototype.slice.call(document.querySelectorAll("#filterBar .filter-btn"));
+      var search = document.getElementById("searchInput");
+      var countEl = document.getElementById("resultCount");
+      var emptyEl = document.getElementById("emptyState");
+      var filtroAtivo = "todos";
+      var termo = "";
 
-      function urlSegura(raw) {
-        try {
-          const parsed = new URL(raw);
-          if (parsed.protocol !== "https:") return "#";
-          const host = parsed.hostname.toLowerCase();
-          const ok = DOMINIOS_PERMITIDOS.some(function (d) {
-            return host === d || host.endsWith("." + d);
-          });
-          return ok ? parsed.toString() : "#";
-        } catch (e) {
-          return "#";
+      function atualizarLista() {
+        var q = termo.trim().toLowerCase();
+        var visiveis = 0;
+        cards.forEach(function (card) {
+          var loja = card.getAttribute("data-loja") || "";
+          var cat = card.getAttribute("data-cat") || "";
+          var texto = (card.getAttribute("data-q") || "") + " " + (card.textContent || "").toLowerCase();
+          var bateFiltro = filtroAtivo === "todos" || loja === filtroAtivo || cat === filtroAtivo;
+          var bateBusca = !q || texto.indexOf(q) !== -1;
+          if (bateFiltro && bateBusca) {
+            card.classList.remove("hidden");
+            visiveis += 1;
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+        if (countEl) {
+          countEl.textContent = visiveis === 1 ? "1 oferta encontrada" : visiveis + " ofertas ativas hoje";
+        }
+        if (emptyEl) {
+          emptyEl.classList.toggle("show", visiveis === 0);
         }
       }
 
-      const AVATAR_SVG_FALLBACK = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
-        '<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 240 240">' +
-          '<defs>' +
-            '<linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">' +
-              '<stop offset="0%" stop-color="#ff00d4"/>' +
-              '<stop offset="55%" stop-color="#ff5e5b"/>' +
-              '<stop offset="100%" stop-color="#ff9922"/>' +
-            '</linearGradient>' +
-          '</defs>' +
-          '<rect width="240" height="240" fill="#120224"/>' +
-          '<circle cx="120" cy="120" r="78" fill="url(#sun)"/>' +
-          '<circle cx="54" cy="122" r="24" fill="#ff1e38"/>' +
-          '<text x="148" y="140" text-anchor="middle" font-family="Arial Black,Impact,sans-serif" font-size="54" font-weight="900" fill="#ffffff">REC</text>' +
-        '</svg>'
-      );
+      btns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          filtroAtivo = btn.getAttribute("data-filter") || "todos";
+          btns.forEach(function (b) { b.classList.toggle("active", b === btn); });
+          atualizarLista();
+        });
+      });
 
-      function configurarAvatar() {
-        const img = document.getElementById("avatarImg");
-        if (!img) return;
-        const fontes = ["perfil.jpg", "1001193376.jpg", AVATAR_SVG_FALLBACK];
-        let idx = 0;
-        img.addEventListener("error", function () {
-          idx += 1;
-          if (idx < fontes.length) {
-            img.src = fontes[idx];
-          }
+      if (search) {
+        search.addEventListener("input", function (ev) {
+          termo = ev.target.value || "";
+          atualizarLista();
         });
       }
 
-      function criarArteSVG(tipo) {
-        const mapas = {
-          gtavi: '<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2c074a"/><stop offset="55%" stop-color="#ff2bd6" stop-opacity="0.35"/><stop offset="100%" stop-color="#140526"/></linearGradient><linearGradient id="s1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff2bd6"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient></defs><rect width="640" height="360" fill="url(#g1)"/><circle cx="320" cy="182" r="96" fill="url(#s1)" opacity="0.92"/><rect x="200" y="218" width="240" height="8" rx="4" fill="#140526" opacity="0.45"/><rect x="215" y="236" width="210" height="7" rx="3.5" fill="#140526" opacity="0.65"/><text x="320" y="196" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="76" font-weight="900" fill="#ffffff" stroke="#140526" stroke-width="6">GTA VI</text><text x="320" y="274" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="#ffe4f8" letter-spacing="4">MÍDIA FÍSICA OFICIAL</text>',
-          dualsense: '<rect width="640" height="360" fill="#140826"/><circle cx="320" cy="180" r="130" fill="#3b82f6" opacity="0.16"/><path d="M210 155 C235 125, 290 128, 320 128 C350 128, 405 125, 430 155 L458 238 C466 262, 444 282, 422 268 L384 228 L256 228 L218 268 C196 282, 174 262, 182 238 Z" fill="#f8fafc" stroke="#60a5fa" stroke-width="4"/><rect x="278" y="138" width="84" height="44" rx="8" fill="#1e293b"/><circle cx="252" cy="196" r="16" fill="#0f172a"/><circle cx="388" cy="196" r="16" fill="#0f172a"/><circle cx="408" cy="158" r="6" fill="#ff2bd6"/><circle cx="422" cy="172" r="6" fill="#38bdf8"/><text x="320" y="324" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#cbd5e1" letter-spacing="3">DUALSENSE PS5</text>',
-          xbox: '<rect width="640" height="360" fill="#0d1a14"/><circle cx="320" cy="180" r="130" fill="#22c55e" opacity="0.16"/><path d="M212 156 C240 126, 292 130, 320 130 C348 130, 400 126, 428 156 L454 236 C462 258, 440 278, 418 264 L382 226 L258 226 L222 264 C200 278, 178 258, 186 236 Z" fill="#1e293b" stroke="#22c55e" stroke-width="4"/><circle cx="320" cy="154" r="14" fill="#22c55e"/><circle cx="250" cy="178" r="15" fill="#0f172a" stroke="#475569" stroke-width="3"/><circle cx="364" cy="200" r="15" fill="#0f172a" stroke="#475569" stroke-width="3"/><text x="320" y="324" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#bbf7d0" letter-spacing="3">XBOX WIRELESS</text>',
-          psn: '<rect width="640" height="360" fill="#0c1535"/><rect x="196" y="72" width="248" height="216" rx="22" fill="#1d4ed8" stroke="#60a5fa" stroke-width="4"/><rect x="196" y="72" width="248" height="58" rx="22" fill="#1e3a8a"/><text x="320" y="110" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="22" fill="#ffffff">PLAYSTATION</text><text x="320" y="198" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="44" fill="#fbbf24">GIFT CARD</text><text x="320" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#dbeafe">CRÉDITO DIGITAL PSN</text>',
-          headset: '<rect width="640" height="360" fill="#1a081e"/><circle cx="320" cy="180" r="126" fill="#ef4444" opacity="0.16"/><path d="M225 190 C225 110, 415 110, 415 190" fill="none" stroke="#f8fafc" stroke-width="18" stroke-linecap="round"/><rect x="200" y="178" width="44" height="86" rx="18" fill="#1f2937" stroke="#ef4444" stroke-width="4"/><rect x="396" y="178" width="44" height="86" rx="18" fill="#1f2937" stroke="#ef4444" stroke-width="4"/><path d="M222 254 C240 282, 282 282, 304 274" fill="none" stroke="#ef4444" stroke-width="6" stroke-linecap="round"/><text x="320" y="326" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#fecaca" letter-spacing="3">HYPERX CLOUD STINGER 2</text>',
-          mic: '<rect width="640" height="360" fill="#150826"/><circle cx="320" cy="175" r="124" fill="#ff2bd6" opacity="0.18"/><rect x="284" y="88" width="72" height="122" rx="36" fill="#1f2937" stroke="#ff2bd6" stroke-width="4"/><line x1="296" y1="126" x2="344" y2="126" stroke="#38bdf8" stroke-width="4"/><line x1="296" y1="146" x2="344" y2="146" stroke="#ff2bd6" stroke-width="4"/><line x1="296" y1="166" x2="344" y2="166" stroke="#fbbf24" stroke-width="4"/><path d="M262 178 C262 238, 378 238, 378 178" fill="none" stroke="#e2e8f0" stroke-width="6"/><line x1="320" y1="230" x2="320" y2="274" stroke="#e2e8f0" stroke-width="7"/><rect x="272" y="272" width="96" height="14" rx="7" fill="#334155"/><text x="320" y="328" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#f5d0fe" letter-spacing="3">MICROFONE USB STREAMER</text>',
-          dock: '<rect width="640" height="360" fill="#100924"/><circle cx="320" cy="180" r="120" fill="#38bdf8" opacity="0.16"/><rect x="190" y="210" width="260" height="44" rx="16" fill="#f8fafc" stroke="#38bdf8" stroke-width="4"/><rect x="234" y="138" width="68" height="72" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="3"/><rect x="338" y="138" width="68" height="72" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="3"/><circle cx="268" cy="232" r="6" fill="#22c55e"/><circle cx="372" cy="232" r="6" fill="#22c55e"/><text x="320" y="316" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#bae6fd" letter-spacing="3">BASE DUPLA PS5</text>',
-          mousepad: '<rect width="640" height="360" fill="#120624"/><defs><linearGradient id="rgb" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff2bd6"/><stop offset="50%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient></defs><rect x="108" y="110" width="424" height="156" rx="18" fill="#0b0b14" stroke="url(#rgb)" stroke-width="8"/><rect x="150" y="148" width="220" height="80" rx="10" fill="#1e1b2e" stroke="#475569" stroke-width="2"/><ellipse cx="445" cy="188" rx="34" ry="48" fill="#1e1b2e" stroke="#ff2bd6" stroke-width="3"/><text x="320" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#fde68a" letter-spacing="3">MOUSEPAD XL RGB</text>',
-          led: '<rect width="640" height="360" fill="#140524"/><defs><linearGradient id="l1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff2bd6"/><stop offset="50%" stop-color="#ff6a2b"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient></defs><path d="M90 240 C170 90, 260 90, 320 180 C380 270, 470 270, 550 120" fill="none" stroke="url(#l1)" stroke-width="20" stroke-linecap="round"/><path d="M90 240 C170 90, 260 90, 320 180 C380 270, 470 270, 550 120" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 18" stroke-linecap="round"/><text x="320" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="#fbcfe8" letter-spacing="3">FITA LED RGB SMART</text>'
-        };
-        const corpo = mapas[tipo] || mapas.gtavi;
-        return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
-          '<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 640 360">' + corpo + "</svg>"
-        );
-      }
-
-      const FILTROS = Object.freeze([
-        { id: "todos", label: "Todos (" + PRODUTOS.length + ")" },
-        { id: "mercadolivre", label: "Mercado Livre" },
-        { id: "shopee", label: "Shopee" },
-        { id: "consoles", label: "Consoles & Jogos" },
-        { id: "setup", label: "Setup & RGB" }
-      ]);
-
-      let filtroAtivo = "todos";
-      let termoBusca = "";
-
+      /* 3. Botão Compartilhar Loja */
       function mostrarToast(msg) {
-        const el = document.getElementById("toast");
+        var el = document.getElementById("toast");
         if (!el) return;
         el.textContent = msg;
         el.classList.add("show");
@@ -767,156 +976,25 @@
         }, 2300);
       }
 
-      function renderizarFiltros() {
-        const bar = document.getElementById("filterBar");
-        if (!bar) return;
-        bar.textContent = "";
-        FILTROS.forEach(function (f) {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "filter-btn" + (filtroAtivo === f.id ? " active" : "");
-          btn.textContent = f.label;
-          btn.addEventListener("click", function () {
-            filtroAtivo = f.id;
-            renderizarFiltros();
-            renderizarProdutos();
-          });
-          bar.appendChild(btn);
-        });
-      }
-
-      function renderizarProdutos() {
-        const grid = document.getElementById("productGrid");
-        const countEl = document.getElementById("resultCount");
-        if (!grid || !countEl) return;
-
-        const q = termoBusca.trim().toLowerCase();
-        const lista = PRODUTOS.filter(function (p) {
-          const bateFiltro =
-            filtroAtivo === "todos" ||
-            p.loja === filtroAtivo ||
-            p.categoria === filtroAtivo;
-          if (!bateFiltro) return false;
-          if (!q) return true;
-          return (
-            p.nome.toLowerCase().indexOf(q) !== -1 ||
-            p.desc.toLowerCase().indexOf(q) !== -1 ||
-            p.tag.toLowerCase().indexOf(q) !== -1
-          );
-        });
-
-        countEl.textContent =
-          lista.length === 1
-            ? "1 oferta encontrada"
-            : lista.length + " ofertas ativas hoje";
-
-        grid.textContent = "";
-
-        if (lista.length === 0) {
-          const empty = document.createElement("div");
-          empty.className = "empty-state";
-          empty.textContent = "Nenhum achadinho encontrado para essa busca. Tente outro termo.";
-          grid.appendChild(empty);
-          return;
-        }
-
-        lista.forEach(function (p) {
-          const card = document.createElement("article");
-          card.className = "card";
-
-          const media = document.createElement("div");
-          media.className = "card-media";
-
-          const img = document.createElement("img");
-          img.alt = p.nome;
-          img.loading = "lazy";
-          const fallbackArte = criarArteSVG(p.arte);
-          img.src = p.foto ? p.foto : fallbackArte;
-          img.addEventListener("error", function () {
-            if (img.src !== fallbackArte) img.src = fallbackArte;
-          });
-          media.appendChild(img);
-
-          const bStore = document.createElement("span");
-          const ehML = p.loja === "mercadolivre";
-          bStore.className = "badge-store " + (ehML ? "badge-ml" : "badge-shopee");
-          bStore.textContent = ehML ? "Mercado Livre" : "Shopee";
-          media.appendChild(bStore);
-
-          if (p.tag) {
-            const bTag = document.createElement("span");
-            bTag.className = "badge-tag";
-            bTag.textContent = p.tag;
-            media.appendChild(bTag);
+      var shareBtn = document.getElementById("shareBtn");
+      if (shareBtn) {
+        shareBtn.addEventListener("click", function () {
+          var urlAtual = window.location.href;
+          if (navigator.share) {
+            navigator.share({
+              title: "@leonidarecbr • Achadinhos Gamer",
+              text: "Olha a loja oficial de achadinhos gamer do @leonidarecbr:",
+              url: urlAtual
+            }).catch(function () {});
+          } else if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(urlAtual)
+              .then(function () { mostrarToast("Link da loja copiado!"); })
+              .catch(function () { mostrarToast("Copie o link da barra do navegador."); });
+          } else {
+            mostrarToast("Copie o link da barra do navegador.");
           }
-
-          const body = document.createElement("div");
-          body.className = "card-body";
-
-          const cat = document.createElement("div");
-          cat.className = "card-cat";
-          cat.textContent = p.categoria === "consoles" ? "Consoles & Jogos" : "Setup & Periféricos";
-
-          const title = document.createElement("h2");
-          title.className = "card-title";
-          title.textContent = p.nome;
-
-          const desc = document.createElement("p");
-          desc.className = "card-desc";
-          desc.textContent = p.desc;
-
-          const link = document.createElement("a");
-          link.className = "btn-buy " + (ehML ? "btn-buy-ml" : "btn-buy-shopee");
-          link.href = urlSegura(p.url);
-          link.target = "_blank";
-          link.rel = "noopener noreferrer sponsored nofollow";
-          link.textContent = ehML ? "Ver Oferta no Mercado Livre →" : "Ver Oferta na Shopee →";
-
-          body.appendChild(cat);
-          body.appendChild(title);
-          body.appendChild(desc);
-          body.appendChild(link);
-
-          card.appendChild(media);
-          card.appendChild(body);
-          grid.appendChild(card);
         });
       }
-
-      function configurarAcoes() {
-        const search = document.getElementById("searchInput");
-        if (search) {
-          search.addEventListener("input", function (ev) {
-            termoBusca = ev.target.value || "";
-            renderizarProdutos();
-          });
-        }
-
-        const shareBtn = document.getElementById("shareBtn");
-        if (shareBtn) {
-          shareBtn.addEventListener("click", function () {
-            const urlAtual = window.location.href;
-            if (navigator.share) {
-              navigator.share({
-                title: "@leonidarecbr • Achadinhos Gamer",
-                text: "Olha a loja oficial de achadinhos gamer do @leonidarecbr:",
-                url: urlAtual
-              }).catch(function () {});
-            } else if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(urlAtual)
-                .then(function () { mostrarToast("Link da loja copiado!"); })
-                .catch(function () { mostrarToast("Copie o link da barra do navegador."); });
-            } else {
-              mostrarToast("Copie o link da barra do navegador.");
-            }
-          });
-        }
-      }
-
-      configurarAvatar();
-      renderizarFiltros();
-      renderizarProdutos();
-      configurarAcoes();
     })();
   </script>
 </body>
